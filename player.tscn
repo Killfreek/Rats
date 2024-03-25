@@ -19,7 +19,9 @@ size = Vector2(95, 95)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_gka1k")
-speed = 100
+speed = 200
+xStepDistance = 100
+yStepDistance = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -19)

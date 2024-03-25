@@ -1,24 +1,40 @@
 extends Area2D
 
 @export var speed =1
-@export var gridscalex =1
-@export var gridscaley =1 
+@export var xStepDistance =1
+@export var yStepDistance =1 
+
+var player
+var isMoving = false
+var tween
+var finalPosition
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	player = get_node(".")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocaty = Vector2.ZERO
-	if Input.is_action_pressed("MoveRight"):
-		velocaty.x +=1
-	if Input.is_action_pressed("MoveLeft"):
-		velocaty.x -=1
-	if Input.is_action_pressed("MoveUp"):
-		velocaty.y -=1
-	if Input.is_action_pressed("MoveDown"):
-		velocaty.y +=1
-	if velocaty.length() > 0:
-		velocaty = velocaty.normalized() * speed
-	position += velocaty * delta
+	if !isMoving:
+		isMoving = true;
+		
+		var velocaty = Vector2.ZERO
+		if Input.is_action_pressed("MoveRight"):
+			velocaty.x += xStepDistance
+		if Input.is_action_pressed("MoveLeft"):
+			velocaty.x -= xStepDistance
+		if Input.is_action_pressed("MoveUp"):
+			velocaty.y -= yStepDistance
+		if Input.is_action_pressed("MoveDown"):
+			velocaty.y += yStepDistance
+		
+		finalPosition = position + velocaty;
+	
+	move_ToTarget(delta);
+		
+func move_ToTarget(delta):
+	if isMoving:
+		player.global_position = player.global_position.move_toward(finalPosition, delta * speed)
+	if player.global_position == finalPosition:
+		isMoving = false;
