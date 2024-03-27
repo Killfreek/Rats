@@ -4,7 +4,11 @@ extends Area2D
 @export var xStepDistance =1
 @export var yStepDistance =1 
 
+@export var PlayerAreaTopLeftCorner : Node2D
+@export var PlayerAreaBottomRightCorner : Node2D
+
 var player
+var playerArea : Rect2
 var isMoving = false
 var tween
 var finalPosition
@@ -12,13 +16,15 @@ var finalPosition
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node(".")
-
+	playerArea = Rect2(
+		PlayerAreaTopLeftCorner.position.x,
+		PlayerAreaTopLeftCorner.position.y,
+		PlayerAreaBottomRightCorner.position.x,
+		PlayerAreaBottomRightCorner.position.y);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !isMoving:
-		isMoving = true;
-		
 		var velocaty = Vector2.ZERO
 		if Input.is_action_pressed("MoveRight"):
 			velocaty.x += xStepDistance
@@ -29,7 +35,12 @@ func _process(delta):
 		if Input.is_action_pressed("MoveDown"):
 			velocaty.y += yStepDistance
 		
-		finalPosition = position + velocaty;
+		var intendedFinalPosition = position + velocaty;
+		if playerArea.intersection(Rect2(
+			intendedFinalPosition.x, intendedFinalPosition.y,
+			intendedFinalPosition.x, intendedFinalPosition.y)) != Rect2(0,0,0,0):
+				finalPosition = position + velocaty;
+				isMoving = true;
 	
 	move_ToTarget(delta);
 		
