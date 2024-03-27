@@ -14,8 +14,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnfgt"]
-size = Vector2(95, 95)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tab1"]
+size = Vector2(92, 82)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_gka1k")
@@ -24,11 +24,12 @@ xStepDistance = 100
 yStepDistance = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, -19)
-scale = Vector2(0.505747, 0.5625)
+position = Vector2(-1.61559e-27, 0)
+scale = Vector2(0.461207, 0.472739)
 sprite_frames = SubResource("SpriteFrames_mtjfy")
 animation = &"BlueTriangel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -17.5)
-shape = SubResource("RectangleShape2D_nnfgt")
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_1tab1")
+one_way_collision_margin = 0.0
