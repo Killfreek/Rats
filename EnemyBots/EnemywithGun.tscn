@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi28dgfpt004"]
+[gd_scene load_steps=4 format=3 uid="uid://bi28dgfpt004"]
 
 [ext_resource type="Texture2D" uid="uid://ct63mmuyrjhed" path="res://Sprites/HostileMobs/RedboxWithGun.png" id="1_3nea7"]
+[ext_resource type="Script" path="res://EnemyBots/EnemywithGun.gd" id="1_muyc2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ffakx"]
 animations = [{
@@ -15,6 +16,10 @@ animations = [{
 
 [node name="EnemywithGun" type="Node2D"]
 top_level = true
+script = ExtResource("1_muyc2")
+moveStepCount = 1
+moveStepDistance = 100
+speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
