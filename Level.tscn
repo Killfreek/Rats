@@ -1,17 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddyxv1i3eutg4"]
+[gd_scene load_steps=10 format=3 uid="uid://ddyxv1i3eutg4"]
 
-[ext_resource type="Texture2D" uid="uid://cyp3pi8jo8qne" path="res://Sprites/Background/Darkgreen.png" id="1_b77xp"]
+[ext_resource type="Texture2D" uid="uid://c1yjt06gcoayr" path="res://Sprites/Background/DarkGrassBackground.png" id="1_qsrsr"]
+[ext_resource type="Texture2D" uid="uid://bcfq5pmg0ndmm" path="res://Sprites/Background/LightGrassBackground.png" id="2_hj01m"]
+[ext_resource type="Texture2D" uid="uid://wtcmwiyfshmw" path="res://Sprites/Background/DarkGrassBackgroundDirtWall.png" id="3_7eqfd"]
+[ext_resource type="Texture2D" uid="uid://cf1egode7sth6" path="res://Sprites/Background/LightGrassBackgroundWall.png" id="4_kk212"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo16c"]
-texture = ExtResource("1_b77xp")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gw40l"]
+texture = ExtResource("1_qsrsr")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqxxj"]
+texture = ExtResource("2_hj01m")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a26ld"]
+texture = ExtResource("3_7eqfd")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwepf"]
+texture = ExtResource("4_kk212")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_28fn1"]
 tile_size = Vector2i(100, 100)
-sources/0 = SubResource("TileSetAtlasSource_wo16c")
+sources/1 = SubResource("TileSetAtlasSource_gw40l")
+sources/2 = SubResource("TileSetAtlasSource_sqxxj")
+sources/3 = SubResource("TileSetAtlasSource_a26ld")
+sources/4 = SubResource("TileSetAtlasSource_bwepf")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_28fn1")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 65537, 0, 0, 131073, 0, 0, 131074, 0, 0, 65538, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65539, 0, 0, 4, 0, 0, 65540, 0, 0, 131075, 0, 0, 196611, 0, 0, 196612, 0, 0, 131076, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 196609, 0, 0, 196610, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 1, 0, 65537, 2, 0, 131073, 1, 0, 131074, 2, 0, 65538, 1, 0, 1, 1, 0, 2, 2, 0, 3, 1, 0, 65539, 2, 0, 4, 2, 0, 65540, 1, 0, 131075, 1, 0, 196611, 2, 0, 196612, 1, 0, 131076, 2, 0, 262148, 2, 0, 262147, 1, 0, 262146, 2, 0, 262145, 1, 0, 262144, 2, 0, 196608, 1, 0, 131072, 2, 0, 196609, 2, 0, 196610, 1, 0, 262149, 3, 0, 196614, 1, 0, 131079, 1, 0, 65544, 1, 0, 9, 1, 0, 65546, 1, 0, 11, 1, 0, 131083, 1, 0, 196618, 1, 0, 262155, 1, 0, 262153, 1, 0, 262151, 1, 0, 196616, 1, 0, 131081, 1, 0, 131077, 3, 0, 65542, 1, 0, 5, 3, 0, 7, 1, 0, 196613, 4, 0, 65541, 4, 0, 131078, 2, 0, 6, 2, 0, 262150, 2, 0, 196615, 2, 0, 65543, 2, 0, 131080, 2, 0, 8, 2, 0, 65545, 2, 0, 10, 2, 0, 131082, 2, 0, 65547, 2, 0, 196619, 2, 0, 196617, 2, 0, 262152, 2, 0, 262154, 2, 0)

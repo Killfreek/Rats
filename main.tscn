@@ -16,4 +16,4 @@ PlayerAreaBottomRightCorner = NodePath("../PlayerAreaBottomRight")
 [node name="PlayerAreaTopLeft" type="Node2D" parent="."]
 
 [node name="PlayerAreaBottomRight" type="Node2D" parent="."]
-position = Vector2(501, 497)
+position = Vector2(501, 501)
