@@ -54,7 +54,7 @@ yStepDistance = 100
 position = Vector2(-0.499997, 2)
 scale = Vector2(0.455, 0.41)
 sprite_frames = SubResource("SpriteFrames_mtjfy")
-animation = &"Idle"
+animation = &"Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

@@ -27,6 +27,7 @@ func _ready():
 		PlayerAreaTopLeftCorner.position.y,
 		PlayerAreaBottomRightCorner.position.x,
 		PlayerAreaBottomRightCorner.position.y);
+	$AnimatedSprite2D.animation = "Idle";
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -88,6 +89,14 @@ func SetUpMovement(delta, postition, velocaty):
 	var actualString = formatString % [finalPosition, originalDistanceForMovement];
 	print(actualString);
 	movementStartPoint = postition;
+	if velocaty.x > 0:
+		$AnimatedSprite2D.animation = "Right";
+	elif velocaty.x < 0:
+		$AnimatedSprite2D.animation = "Left";
+	elif velocaty.y > 0:
+		$AnimatedSprite2D.animation = "Idle";
+	elif velocaty.y < 0:
+		$AnimatedSprite2D.animation = "Up";
 	move_ToTarget(delta);
 
 func move_ToTarget(delta):
@@ -97,3 +106,4 @@ func move_ToTarget(delta):
 		isMoving = false;
 		finalPosition = false;
 		isDoingReverse = false;
+		$AnimatedSprite2D.animation = "Idle";
