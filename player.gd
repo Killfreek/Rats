@@ -13,6 +13,7 @@ var player
 var playerArea : Rect2
 var isMoving = false
 var finalPosition
+var isDoingReverse = false;
 
 var lastButtonClicked = 0;
 var originalDistanceForMovement : float
@@ -73,7 +74,8 @@ func _process(delta):
 
 		if !canReverse:
 			move_ToTarget(delta);
-		else:
+		elif canReverse && !isDoingReverse:
+			isDoingReverse = true;
 			isMoving = false;
 			velocaty = movementStartPoint - player.position;
 			SetUpMovement(delta, player.position, velocaty);
@@ -94,3 +96,4 @@ func move_ToTarget(delta):
 	if player.global_position == finalPosition:
 		isMoving = false;
 		finalPosition = false;
+		isDoingReverse = false;
