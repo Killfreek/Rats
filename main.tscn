@@ -10,6 +10,7 @@ top_level = true
 position = Vector2(254, 250)
 PlayerAreaTopLeftCorner = NodePath("../PlayerAreaTopLeft")
 PlayerAreaBottomRightCorner = NodePath("../PlayerAreaBottomRight")
+CancelMovementThreshold = 50
 
 [node name="TileMap" parent="." instance=ExtResource("2_aw33h")]
 
