@@ -20,8 +20,6 @@ CancelMovementThreshold = 50
 position = Vector2(501, 501)
 
 [node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations")]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(1250, 50)
 script = ExtResource("3_a5ssk")
 spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
