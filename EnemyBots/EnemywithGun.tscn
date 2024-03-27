@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi28dgfpt004"]
+
+[ext_resource type="Texture2D" uid="uid://ct63mmuyrjhed" path="res://Sprites/HostileMobs/RedboxWithGun.png" id="1_3nea7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffakx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3nea7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemywithGun" type="Node2D"]
+top_level = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ffakx")
