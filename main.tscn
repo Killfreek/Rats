@@ -20,7 +20,7 @@ CancelMovementThreshold = 50
 position = Vector2(501, 501)
 
 [node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations")]
-position = Vector2(1250, 50)
+position = Vector2(1150, 50)
 script = ExtResource("3_a5ssk")
 spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
 enemyScene = ExtResource("4_dhptn")

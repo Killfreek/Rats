@@ -15,7 +15,6 @@ func _on_enemy_spawn_timer_timeout():
 	var rngNumber = int(rng.randf_range(0, spawnLocations.size()));
 	if !spawnLocationsUseState[rngNumber]:
 		var spawnLocation = spawnLocations[rngNumber];
-		spawnLocation.position.x -= 100;
 		var enemy = enemyScene.instantiate();
 		enemy.setup(rngNumber);
 		enemy.position = self.position + spawnLocation.position;
