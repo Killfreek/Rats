@@ -55,9 +55,6 @@ func _process(delta):
 	else:
 		var movementLeftToDo = player.global_position.distance_to(finalPosition);
 		var precentageMovementLeft = (movementLeftToDo / originalDistanceForMovement) * 100;
-		var formatString = "Movment left to do %s there is %s left";
-		var actualString = formatString % [movementLeftToDo, precentageMovementLeft];
-		print(actualString);
 
 		var canReverse = false
 		if Input.is_action_pressed("MoveRight") && lastButtonClicked == 4 && precentageMovementLeft >= CancelMovementThreshold:
@@ -85,9 +82,6 @@ func SetUpMovement(delta, postition, velocaty):
 	finalPosition = postition + velocaty;
 	isMoving = true;
 	originalDistanceForMovement = postition.distance_to(finalPosition);
-	var formatString = "Setting new position of %s we have %s movement to do";
-	var actualString = formatString % [finalPosition, originalDistanceForMovement];
-	print(actualString);
 	movementStartPoint = postition;
 	if velocaty.x > 0:
 		$AnimatedSprite2D.animation = "Right";

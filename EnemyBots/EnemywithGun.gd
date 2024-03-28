@@ -5,6 +5,9 @@ extends Node2D
 @export var speed : int
 
 var finalPosition
+var rowPosition
+
+signal left(rowIndex : int);
 
 func _ready():
 	finalPosition = self.position + Vector2(moveStepCount * (moveStepDistance * -1), 0)
@@ -17,3 +20,9 @@ func _process(delta):
 
 func move_ToTarget(delta):
 	self.position = self.position.move_toward(finalPosition, delta * speed)
+
+func setup(rowPositionP):
+	rowPosition = rowPositionP;
+
+func _on_tree_exited():
+	left.emit(rowPosition)
