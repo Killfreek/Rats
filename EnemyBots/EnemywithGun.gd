@@ -3,6 +3,7 @@ extends Node2D
 @export var moveStepCount : int
 @export var moveStepDistance : int 
 @export var speed : int
+@export var projectile : PackedScene
 
 var finalPosition
 var rowPosition
@@ -15,13 +16,18 @@ func _ready():
 	returnPosition = self.position;
 	
 func _process(delta):
-	move_ToTarget(delta);
-	
 	if self.position == finalPosition:
 		if finalPosition != returnPosition:
+			var projectile = projectile.instantiate();
+			projectile.position = self.position + Vector2(-100,0);
+			projectile.setup(Vector2(-1000,0));
+			get_node("/root").add_child(projectile);
+			
 			finalPosition = returnPosition;
 		else:
 			queue_free();
+	
+	move_ToTarget(delta);
 
 func move_ToTarget(delta):
 	self.position = self.position.move_toward(finalPosition, delta * speed)
