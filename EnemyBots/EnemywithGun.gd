@@ -6,17 +6,22 @@ extends Node2D
 
 var finalPosition
 var rowPosition
+var returnPosition
 
 signal left(rowIndex : int);
 
 func _ready():
 	finalPosition = self.position + Vector2(moveStepCount * (moveStepDistance * -1), 0)
-
+	returnPosition = self.position;
+	
 func _process(delta):
 	move_ToTarget(delta);
 	
 	if self.position == finalPosition:
-		queue_free();
+		if finalPosition != returnPosition:
+			finalPosition = returnPosition;
+		else:
+			queue_free();
 
 func move_ToTarget(delta):
 	self.position = self.position.move_toward(finalPosition, delta * speed)
