@@ -101,3 +101,6 @@ func move_ToTarget(delta):
 		finalPosition = false;
 		isDoingReverse = false;
 		$AnimatedSprite2D.animation = "Idle";
+
+func _on_area_2d_area_entered(area):
+	print("test");

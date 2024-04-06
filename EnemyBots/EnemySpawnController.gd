@@ -2,6 +2,7 @@ extends Node2D
 
 @export var spawnLocations : Array[Node2D]
 @export var enemyScene : PackedScene
+@export var playerNode : Area2D
 
 var spawnLocationsUseState : Array[bool]
 
@@ -16,7 +17,7 @@ func _on_enemy_spawn_timer_timeout():
 	if !spawnLocationsUseState[rngNumber]:
 		var spawnLocation = spawnLocations[rngNumber];
 		var enemy = enemyScene.instantiate();
-		enemy.setup(rngNumber);
+		enemy.setup(rngNumber, playerNode);
 		enemy.position = self.position + spawnLocation.position;
 
 		enemy.left.connect(_on_enemy_despawn);
