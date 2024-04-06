@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2vihdt08h1js"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_gka1k"]
-[ext_resource type="Texture2D" uid="uid://d1dnoadye5kg3" path="res://Sprites/PlayerModels/PlayerTryangle.png" id="2_1os11"]
-[ext_resource type="Texture2D" uid="uid://dgd03eoge7tu2" path="res://Sprites/PlayerModels/PlayerTryangleUp.png" id="3_0r1cb"]
-[ext_resource type="Texture2D" uid="uid://dpvp268g64km1" path="res://Sprites/PlayerModels/PlayerTryangleLeft.png" id="4_6u2ll"]
-[ext_resource type="Texture2D" uid="uid://b5kwhm832hgbl" path="res://Sprites/PlayerModels/PlayerTryangleRight.png" id="5_gvgy1"]
+[ext_resource type="Texture2D" uid="uid://5xbf4tw06sfv" path="res://Sprites/PlayerModels/PlayerCircleMain.png" id="2_744nj"]
+[ext_resource type="Texture2D" uid="uid://ba57d0ebu62oq" path="res://Sprites/PlayerModels/PlayerCircleLeft.png" id="3_igobt"]
+[ext_resource type="Texture2D" uid="uid://b28m6vgyg51cs" path="res://Sprites/PlayerModels/PlayerCircleRight.png" id="4_v3a83"]
+[ext_resource type="Texture2D" uid="uid://herrl4m7vhjb" path="res://Sprites/PlayerModels/PlayerCircleBack.png" id="5_j7ecy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mtjfy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1os11")
+"texture": ExtResource("2_744nj")
 }],
 "loop": true,
 "name": &"Idle",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6u2ll")
+"texture": ExtResource("3_igobt")
 }],
 "loop": true,
 "name": &"Left",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_gvgy1")
+"texture": ExtResource("4_v3a83")
 }],
 "loop": true,
 "name": &"Right",
@@ -34,15 +34,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0r1cb")
+"texture": ExtResource("5_j7ecy")
 }],
 "loop": true,
 "name": &"Up",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tab1"]
-size = Vector2(92, 82)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj4yr"]
+radius = 50.01
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_gka1k")
@@ -51,12 +51,10 @@ xStepDistance = 100
 yStepDistance = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.499997, 2)
-scale = Vector2(0.455, 0.41)
+scale = Vector2(0.49, 0.49)
 sprite_frames = SubResource("SpriteFrames_mtjfy")
-animation = &"Right"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2)
-shape = SubResource("RectangleShape2D_1tab1")
+shape = SubResource("CircleShape2D_lj4yr")
 one_way_collision_margin = 0.0
