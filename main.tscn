@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://di80l1kbhxfwb"]
+[gd_scene load_steps=7 format=3 uid="uid://di80l1kbhxfwb"]
 
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="1_yy6vf"]
 [ext_resource type="PackedScene" uid="uid://ddyxv1i3eutg4" path="res://Levels/Level.tscn" id="2_aw33h"]
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="3_a5ssk"]
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/EnemywithGun.tscn" id="4_dhptn"]
-[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
+[ext_resource type="PackedScene" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]
+size = Vector2(20, 513)
 
 [node name="Main" type="Node2D"]
 
@@ -45,5 +48,12 @@ position = Vector2(0, 400)
 autostart = true
 
 [node name="TileMap" parent="." instance=ExtResource("2_aw33h")]
+
+[node name="DeleteZone" type="Area2D" parent="."]
+position = Vector2(-50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteZone"]
+position = Vector2(0, 246.5)
+shape = SubResource("RectangleShape2D_pec6s")
 
 [connection signal="timeout" from="EnemySpawnLocations/EnemySpawnTimer" to="EnemySpawnLocations" method="_on_enemy_spawn_timer_timeout"]
