@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di80l1kbhxfwb"]
+[gd_scene load_steps=6 format=3 uid="uid://di80l1kbhxfwb"]
 
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="1_yy6vf"]
 [ext_resource type="PackedScene" uid="uid://ddyxv1i3eutg4" path="res://Levels/Level.tscn" id="2_aw33h"]
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="3_a5ssk"]
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/EnemywithGun.tscn" id="4_dhptn"]
+[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
 
 [node name="Main" type="Node2D"]
 
@@ -23,7 +24,7 @@ position = Vector2(501, 501)
 position = Vector2(1150, 50)
 script = ExtResource("3_a5ssk")
 spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
-enemyScene = ExtResource("4_dhptn")
+enemyScene = Array[PackedScene]([ExtResource("4_dhptn"), ExtResource("4_ercyg")])
 playerNode = NodePath("../Player")
 
 [node name="EnemySpawnLocation1" type="Node2D" parent="EnemySpawnLocations"]

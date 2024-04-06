@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ft0pw3n37f7"]
+
+[ext_resource type="Script" path="res://EnemyBots/EnemywithRocket.gd" id="1_2fkbw"]
+[ext_resource type="PackedScene" uid="uid://uwk2r6hcllt5" path="res://Projectiles/ProjectileExplosive.tscn" id="2_a0irm"]
+[ext_resource type="Texture2D" uid="uid://f2610imh80e" path="res://Sprites/HostileMobs/RedboxWithBazooka.png" id="2_oqdey"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffakx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oqdey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemywithGun" type="Node2D"]
+top_level = true
+script = ExtResource("1_2fkbw")
+moveStepCount = 1
+moveStepDistance = 100
+speed = 100
+projectile = ExtResource("2_a0irm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ffakx")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
