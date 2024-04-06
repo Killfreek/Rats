@@ -17,6 +17,7 @@ position = Vector2(250, 250)
 PlayerAreaTopLeftCorner = NodePath("../PlayerAreaTopLeft")
 PlayerAreaBottomRightCorner = NodePath("../PlayerAreaBottomRight")
 CancelMovementThreshold = 50
+health = 1
 
 [node name="PlayerAreaTopLeft" type="Node2D" parent="."]
 

@@ -21,6 +21,7 @@ height = 56.0
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_4sdx2")
 speed = 100
+damage = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.43051e-06, 9.53674e-07)

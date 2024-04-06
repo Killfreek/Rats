@@ -3,6 +3,8 @@ extends Node
 class_name  BaseProjectile
 
 @export var speed : int
+@export var damage : int
+
 var finalPosition : Vector2
 
 func _process(delta):
@@ -13,4 +15,6 @@ func setup(velocity : Vector2):
 
 func _on_area_2d_area_entered(area):
 	print(area.get_name());
+	if(area.get_name() == "Player"):
+		area.takeDamage(damage);
 	queue_free();

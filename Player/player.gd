@@ -9,6 +9,8 @@ extends Area2D
 
 @export var CancelMovementThreshold : int
 
+@export var health : int
+
 var player
 var playerArea : Rect2
 var isMoving = false
@@ -101,3 +103,8 @@ func move_ToTarget(delta):
 		finalPosition = false;
 		isDoingReverse = false;
 		$AnimatedSprite2D.animation = "Idle";
+
+func takeDamage(damage : int):
+	health =- damage;
+	if (health <= 0):
+		queue_free();
