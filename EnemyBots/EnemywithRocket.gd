@@ -23,9 +23,6 @@ func _process(delta):
 			projectileInstnace.position = self.position + Vector2(-100,0);
 			projectileInstnace.setup(Vector2(-1000,0));
 
-			var callable = Callable(playerNode, "_on_area_2d_area_entered");
-			projectileInstnace.get_node("Area2D").connect("area_entered", callable);
-
 			get_node("/root").add_child(projectileInstnace);
 			
 			finalPosition = returnPosition;
