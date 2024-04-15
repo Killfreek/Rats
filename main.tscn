@@ -14,7 +14,7 @@ size = Vector2(20, 513)
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 256)
+position = Vector2(577, 249)
 
 [node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations")]
 position = Vector2(1150, 49)
