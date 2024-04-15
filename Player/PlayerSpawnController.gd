@@ -9,7 +9,7 @@ extends Node
 var canSpawn : bool
 
 func _ready():
-	canSpawn = false;
+	canSpawn = true;
 
 func _process(delta):
 	if Input.is_action_pressed("SpawnPlayer") && canSpawn:

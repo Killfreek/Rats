@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bp6r0h36cnlk7"]
 
-[ext_resource type="Texture2D" uid="uid://ddvtmp4w805p7" path="res://Sprites/HostileMobs/Projectiles.png" id="1_03ghr"]
 [ext_resource type="Script" path="res://Projectiles/Projectile.gd" id="1_fwswn"]
+[ext_resource type="Texture2D" uid="uid://cu7eyd42wu868" path="res://Sprites/HostileMobs/Projectiles2.png" id="2_wyg2h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hr1yl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_03ghr")
+"texture": ExtResource("2_wyg2h")
 }],
 "loop": true,
 "name": &"default",
