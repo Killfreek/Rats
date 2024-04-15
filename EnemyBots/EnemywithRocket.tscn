@@ -15,7 +15,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemywithGun" type="Node2D"]
+[node name="EnemywithRocket" type="Node2D"]
 top_level = true
 script = ExtResource("1_2fkbw")
 moveStepCount = 1

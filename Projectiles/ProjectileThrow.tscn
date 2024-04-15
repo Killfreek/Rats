@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bubymue2eexi2"]
+
+[ext_resource type="Script" path="res://Projectiles/ProjectileThrow.gd" id="1_u7rvs"]
+[ext_resource type="Texture2D" uid="uid://dt1jdcco1eb6l" path="res://Sprites/HostileMobs/ProjectilesArcing.png" id="2_lk4k7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr1yl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lk4k7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k102h"]
+radius = 15.0
+height = 34.0
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_u7rvs")
+speed = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hr1yl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k102h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
