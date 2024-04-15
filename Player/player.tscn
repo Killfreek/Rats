@@ -49,6 +49,8 @@ script = ExtResource("1_gka1k")
 speed = 200
 xStepDistance = 100
 yStepDistance = 100
+CancelMovementThreshold = 50
+health = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.49, 0.49)
