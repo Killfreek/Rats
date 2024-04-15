@@ -21,6 +21,8 @@ var lastButtonClicked = 0;
 var originalDistanceForMovement : float
 var movementStartPoint : Vector2
 
+signal player_died;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node(".")
@@ -107,4 +109,5 @@ func move_ToTarget(delta):
 func takeDamage(damage : int):
 	health =- damage;
 	if (health <= 0):
+		player_died.emit();
 		queue_free();

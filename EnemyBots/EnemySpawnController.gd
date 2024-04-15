@@ -2,7 +2,7 @@ extends Node2D
 
 @export var spawnLocations : Array[Node2D]
 @export var enemyScene : Array[PackedScene]
-@export var playerNode : Area2D
+var playerNode : Area2D
 
 var spawnLocationsUseState : Array[bool]
 
@@ -12,7 +12,7 @@ func _ready():
 	spawnLocationsUseState.resize(spawnLocations.size());
 	spawnLocationsUseState.fill(false);
 
-	playerNode.connect("tree_exiting",_on_player_despawn);
+	#playerNode.connect("tree_exiting",_on_player_despawn);
 
 	continueSpawnaing = true;
 
@@ -32,8 +32,6 @@ func _on_enemy_spawn_timer_timeout():
 
 			add_child(enemy);
 			spawnLocationsUseState[rngNumber] = true;
-	else:
-		print("spawn enemy timmer still firing need to disable it");
 
 func _on_enemy_despawn(index : int):
 	spawnLocationsUseState[index] = false;
