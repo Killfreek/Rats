@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddyxv1i3eutg4" path="res://Levels/Level.tscn" id="2_aw33h"]
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="3_a5ssk"]
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/EnemywithGun.tscn" id="4_dhptn"]
-[ext_resource type="PackedScene" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
+[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]
 size = Vector2(20, 513)
