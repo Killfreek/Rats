@@ -1,7 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://uwk2r6hcllt5"]
 
-[ext_resource type="Script" path="res://Projectiles/ProjectileExplosive.gd" id="1_4sdx2"]
 [ext_resource type="Texture2D" uid="uid://bu2tu1bnm1air" path="res://Sprites/HostileMobs/ProjectilesBooM.png" id="2_0lctr"]
+
+[sub_resource type="GDScript" id="GDScript_wqd6m"]
+script/source = "extends StraightProjectile
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hr1yl"]
 animations = [{
@@ -19,8 +22,9 @@ radius = 16.0
 height = 56.0
 
 [node name="Projectile" type="Node2D"]
-script = ExtResource("1_4sdx2")
-speed = 100
+script = SubResource("GDScript_wqd6m")
+speed = 100.0
+damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.43051e-06, 9.53674e-07)

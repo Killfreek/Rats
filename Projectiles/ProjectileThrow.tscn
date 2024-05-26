@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bubymue2eexi2"]
 
-[ext_resource type="Script" path="res://Projectiles/ProjectileThrow.gd" id="1_u7rvs"]
+[ext_resource type="Script" path="res://Projectiles/ArcProjectile.gd" id="1_rebtw"]
 [ext_resource type="Texture2D" uid="uid://dt1jdcco1eb6l" path="res://Sprites/HostileMobs/ProjectilesArcing.png" id="2_lk4k7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hr1yl"]
@@ -19,8 +19,13 @@ radius = 15.0
 height = 34.0
 
 [node name="Projectile" type="Node2D"]
-script = ExtResource("1_u7rvs")
-speed = 100
+script = ExtResource("1_rebtw")
+minRange = 5
+maxRange = 9
+tileWidth = 100
+curveHeight = -100
+speed = 0.5
+damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
