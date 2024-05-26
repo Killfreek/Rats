@@ -19,11 +19,7 @@ func _ready():
 func _process(delta):
 	if self.position == finalPosition:
 		if finalPosition != returnPosition:
-			var projectileInstnace = projectile.instantiate();
-			projectileInstnace.position = self.position + Vector2(-100,0);
-			projectileInstnace.setup(Vector2(-1000,0));
-
-			get_node("/root").add_child(projectileInstnace);
+			spawnProjectile();
 			
 			finalPosition = returnPosition;
 		else:
@@ -38,5 +34,11 @@ func setup(rowPositionP, playerNodeP):
 	rowPosition = rowPositionP;
 	playerNode = playerNodeP
 
+func spawnProjectile():
+	var projectileInstnace = projectile.instantiate();
+	projectileInstnace.position = self.position + Vector2(-100,0);
+	projectileInstnace.setup(Vector2(-1000,0));
+	get_node("/root").add_child(projectileInstnace);
+
 func _on_tree_exited():
-	left.emit(rowPosition)
+	left.emit(rowPosition);

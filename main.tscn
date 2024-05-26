@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="1_yy6vf"]
 [ext_resource type="PackedScene" uid="uid://ddyxv1i3eutg4" path="res://Levels/LevelTest.tscn" id="2_aw33h"]
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="3_a5ssk"]
-[ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/EnemywithCatapult.tscn" id="4_48ijb"]
-[ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/EnemywithGun.tscn" id="4_dhptn"]
-[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/EnemywithRocket.tscn" id="4_ercyg"]
+[ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/Npcs/EnemywithCatapult.tscn" id="4_48ijb"]
+[ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/Npcs/EnemywithGun.tscn" id="4_dhptn"]
+[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/Npcs/EnemywithRocket.tscn" id="4_ercyg"]
 [ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="5_xl7qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn6sy13cm2suv"]
 
-[ext_resource type="Script" path="res://EnemyBots/EnemywithCatapult.gd" id="1_yfxlu"]
+[ext_resource type="Script" path="res://EnemyBots/Npcs/BaseEnemyNpc.gd" id="1_8y4e6"]
 [ext_resource type="Texture2D" uid="uid://cl4avgdpx13vw" path="res://Sprites/HostileMobs/RedboxWithCatapult.png" id="2_n5wbw"]
 [ext_resource type="PackedScene" uid="uid://bubymue2eexi2" path="res://Projectiles/ProjectileThrow.tscn" id="2_te7pj"]
 
@@ -17,7 +17,7 @@ animations = [{
 
 [node name="EnemywithCatapult" type="Node2D"]
 top_level = true
-script = ExtResource("1_yfxlu")
+script = ExtResource("1_8y4e6")
 moveStepCount = 1
 moveStepDistance = 100
 speed = 100

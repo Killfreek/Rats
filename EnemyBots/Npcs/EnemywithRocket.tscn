@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1ft0pw3n37f7"]
 
-[ext_resource type="Script" path="res://EnemyBots/EnemywithRocket.gd" id="1_2fkbw"]
+[ext_resource type="Script" path="res://EnemyBots/Npcs/BaseEnemyNpc.gd" id="1_0vnsl"]
 [ext_resource type="PackedScene" uid="uid://uwk2r6hcllt5" path="res://Projectiles/ProjectileExplosive.tscn" id="2_a0irm"]
 [ext_resource type="Texture2D" uid="uid://f2610imh80e" path="res://Sprites/HostileMobs/RedboxWithBazooka.png" id="2_oqdey"]
 
@@ -17,7 +17,7 @@ animations = [{
 
 [node name="EnemywithRocket" type="Node2D"]
 top_level = true
-script = ExtResource("1_2fkbw")
+script = ExtResource("1_0vnsl")
 moveStepCount = 1
 moveStepDistance = 100
 speed = 100
