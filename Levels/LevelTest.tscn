@@ -1,42 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddyxv1i3eutg4"]
+[gd_scene load_steps=4 format=3 uid="uid://ddyxv1i3eutg4"]
 
-[ext_resource type="Texture2D" uid="uid://orbb0p7vr57j" path="res://Sprites/Background/FloorTile1Dark.png" id="1_1coks"]
-[ext_resource type="Texture2D" uid="uid://c1yjt06gcoayr" path="res://Sprites/Background/DarkGrassBackground.png" id="1_qsrsr"]
-[ext_resource type="Texture2D" uid="uid://bcfq5pmg0ndmm" path="res://Sprites/Background/LightGrassBackground.png" id="2_hj01m"]
-[ext_resource type="Texture2D" uid="uid://wtcmwiyfshmw" path="res://Sprites/Background/DarkGrassBackgroundDirtWall.png" id="3_7eqfd"]
-[ext_resource type="Texture2D" uid="uid://cf1egode7sth6" path="res://Sprites/Background/LightGrassBackgroundWall.png" id="4_kk212"]
-[ext_resource type="Texture2D" uid="uid://n75a2drxb6kg" path="res://Sprites/Background/FloorTile1Light.png" id="6_xovm1"]
 [ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="7_ic54q"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nkew"]
-texture = ExtResource("1_1coks")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gw40l"]
-texture = ExtResource("1_qsrsr")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqxxj"]
-texture = ExtResource("2_hj01m")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a26ld"]
-texture = ExtResource("3_7eqfd")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwepf"]
-texture = ExtResource("4_kk212")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxrww"]
-texture = ExtResource("6_xovm1")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
 texture = ExtResource("7_ic54q")
@@ -48,15 +12,9 @@ texture_region_size = Vector2i(100, 100)
 
 [sub_resource type="TileSet" id="TileSet_28fn1"]
 tile_size = Vector2i(100, 100)
-sources/1 = SubResource("TileSetAtlasSource_gw40l")
-sources/2 = SubResource("TileSetAtlasSource_sqxxj")
-sources/3 = SubResource("TileSetAtlasSource_a26ld")
-sources/4 = SubResource("TileSetAtlasSource_bwepf")
-sources/0 = SubResource("TileSetAtlasSource_4nkew")
-sources/5 = SubResource("TileSetAtlasSource_cxrww")
 sources/7 = SubResource("TileSetAtlasSource_2fa46")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_28fn1")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 5, 0, 65536, 0, 0, 65537, 5, 0, 131073, 0, 0, 131074, 5, 0, 65538, 0, 0, 1, 0, 0, 2, 5, 0, 3, 0, 0, 65539, 5, 0, 4, 5, 0, 65540, 0, 0, 131075, 0, 0, 196611, 5, 0, 196612, 0, 0, 131076, 5, 0, 262148, 5, 0, 262147, 0, 0, 262146, 5, 0, 262145, 0, 0, 262144, 5, 0, 196608, 0, 0, 131072, 5, 0, 196609, 5, 0, 196610, 0, 0, 262149, 0, 0, 196614, 0, 0, 131079, 0, 0, 65544, 0, 0, 9, 0, 0, 65546, 0, 0, 11, 0, 0, 131083, 0, 0, 196618, 0, 0, 262155, 0, 0, 262153, 0, 0, 262151, 0, 0, 196616, 0, 0, 131081, 0, 0, 131077, 0, 0, 65542, 0, 0, 5, 0, 0, 7, 0, 0, 196613, 5, 0, 65541, 5, 0, 131078, 5, 0, 6, 5, 0, 262150, 5, 0, 196615, 5, 0, 65543, 5, 0, 131080, 5, 0, 8, 5, 0, 65545, 5, 0, 10, 5, 0, 131082, 5, 0, 65547, 5, 0, 196619, 5, 0, 196617, 5, 0, 262152, 5, 0, 262154, 5, 0)
+layer_0/tile_data = PackedInt32Array(0, 7, 0, 65536, 65543, 0, 65537, 7, 0, 131073, 65543, 0, 131074, 7, 0, 65538, 65543, 0, 1, 65543, 0, 2, 7, 0, 3, 65543, 0, 65539, 7, 0, 4, 7, 0, 65540, 65543, 0, 131075, 65543, 0, 196611, 7, 0, 196612, 65543, 0, 131076, 7, 0, 262148, 7, 0, 262147, 65543, 0, 262146, 7, 0, 262145, 65543, 0, 262144, 7, 0, 196608, 65543, 0, 131072, 7, 0, 196609, 7, 0, 196610, 65543, 0, 262149, 65543, 0, 196614, 65543, 0, 131079, 65543, 0, 65544, 65543, 0, 9, 65543, 0, 65546, 65543, 0, 11, 65543, 0, 131083, 65543, 0, 196618, 65543, 0, 262155, 65543, 0, 262153, 65543, 0, 262151, 65543, 0, 196616, 65543, 0, 131081, 65543, 0, 131077, 65543, 0, 65542, 65543, 0, 5, 65543, 0, 7, 65543, 0, 196613, 7, 0, 65541, 7, 0, 131078, 7, 0, 6, 7, 0, 262150, 7, 0, 196615, 7, 0, 65543, 7, 0, 131080, 7, 0, 8, 7, 0, 65545, 7, 0, 10, 7, 0, 131082, 7, 0, 65547, 7, 0, 196619, 7, 0, 196617, 7, 0, 262152, 7, 0, 262154, 7, 0)
