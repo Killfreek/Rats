@@ -9,7 +9,9 @@ var startPosition : Vector2
 var maxCurveHeight : Vector2
 var t = 0.0
 
-func setup(velocity : Vector2):
+func setup(velocity : Vector2, tileMapP : TileMap):
+	tileMap = tileMapP;
+	
 	var rng = RandomNumberGenerator.new()
 	var rngNumber = int(rng.randf_range(minRange, maxRange));
 	
@@ -19,9 +21,11 @@ func setup(velocity : Vector2):
 	finalPosition = startPosition + Vector2(xDistance, 0);
 	maxCurveHeight = Vector2(startPosition.x + (xDistance / 2), startPosition.y + curveHeight);
 
+	tileMap.tileTargetted(finalPosition);
 func _process(delta):
 	t += (delta * speed)
 	if (t >= 1):
+		tileMap.tileHit(finalPosition);
 		queue_free();
 	self.position = _quadratic_bezier(startPosition, maxCurveHeight, finalPosition, t);
 	

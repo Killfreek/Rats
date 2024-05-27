@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di80l1kbhxfwb"]
+[gd_scene load_steps=10 format=3 uid="uid://di80l1kbhxfwb"]
 
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="1_yy6vf"]
 [ext_resource type="PackedScene" uid="uid://ddyxv1i3eutg4" path="res://Levels/LevelTest.tscn" id="2_aw33h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/Npcs/EnemywithGun.tscn" id="4_dhptn"]
 [ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/Npcs/EnemywithRocket.tscn" id="4_ercyg"]
 [ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="5_xl7qq"]
+[ext_resource type="Script" path="res://Levels/TileMapController.gd" id="6_m0t5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]
 size = Vector2(20, 513)
@@ -16,11 +17,12 @@ size = Vector2(20, 513)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 249)
 
-[node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations")]
+[node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations", "tileMap")]
 position = Vector2(1150, 49)
 script = ExtResource("3_a5ssk")
 spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
 enemyScene = Array[PackedScene]([ExtResource("4_dhptn"), ExtResource("4_ercyg"), ExtResource("4_48ijb")])
+tileMap = NodePath("../TileMap")
 
 [node name="EnemySpawnLocation1" type="Node2D" parent="EnemySpawnLocations"]
 
@@ -39,8 +41,10 @@ position = Vector2(0, 400)
 [node name="EnemySpawnTimer" type="Timer" parent="EnemySpawnLocations"]
 autostart = true
 
-[node name="TileMap" parent="." instance=ExtResource("2_aw33h")]
+[node name="TileMap" parent="." node_paths=PackedStringArray("tileMap") instance=ExtResource("2_aw33h")]
 layer_0/tile_data = PackedInt32Array(0, 7, 0, 65536, 65543, 0, 65537, 7, 0, 65538, 65543, 0, 1, 65543, 0, 2, 7, 0, 3, 65543, 0, 65539, 7, 0, 4, 7, 0, 65540, 65543, 0, 196612, 65543, 0, 131076, 7, 0, 262148, 7, 0, 262149, 65543, 0, 196614, 65543, 0, 131079, 65543, 0, 65544, 65543, 0, 9, 65543, 0, 65546, 65543, 0, 11, 65543, 0, 131083, 65543, 0, 196618, 65543, 0, 262155, 65543, 0, 262153, 65543, 0, 262151, 65543, 0, 196616, 65543, 0, 131081, 65543, 0, 131077, 65543, 0, 65542, 65543, 0, 5, 65543, 0, 7, 65543, 0, 196613, 7, 0, 65541, 7, 0, 131078, 7, 0, 6, 7, 0, 262150, 7, 0, 196615, 7, 0, 65543, 7, 0, 131080, 7, 0, 8, 7, 0, 65545, 7, 0, 10, 7, 0, 131082, 7, 0, 65547, 7, 0, 196619, 7, 0, 196617, 7, 0, 262152, 7, 0, 262154, 7, 0, 131072, 7, 0, 196608, 65543, 0, 131073, 65543, 0, 196609, 7, 0, 131074, 7, 0, 196610, 65543, 0, 262146, 7, 0, 131075, 65543, 0, 196611, 7, 0, 262147, 65543, 0, 262144, 7, 0, 262145, 65543, 0, -65536, 65545, 0, -65535, 9, 0, -65534, 9, 0, -65533, 65545, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 65545, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, 327680, 9, 1, 327681, 65545, 1, 327682, 9, 1, 327683, 9, 1, 327684, 9, 1, 327685, 65545, 1, 327686, 9, 1, 327687, 9, 1, 327688, 9, 1, 327689, 65545, 1, 327690, 9, 1, 327691, 9, 1)
+script = ExtResource("6_m0t5d")
+tileMap = NodePath(".")
 
 [node name="DeleteZone" type="Area2D" parent="."]
 position = Vector2(-50, 0)

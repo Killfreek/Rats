@@ -9,6 +9,7 @@ var finalPosition
 var rowPosition
 var returnPosition
 var playerNode : Area2D
+var tileMap : Node2D
 
 signal left(rowIndex : int);
 
@@ -30,14 +31,15 @@ func _process(delta):
 func move_ToTarget(delta):
 	self.position = self.position.move_toward(finalPosition, delta * speed)
 
-func setup(rowPositionP, playerNodeP):
+func setup(rowPositionP, playerNodeP, tileMapP):
 	rowPosition = rowPositionP;
-	playerNode = playerNodeP
+	playerNode = playerNodeP;
+	tileMap = tileMapP;
 
 func spawnProjectile():
 	var projectileInstnace = projectile.instantiate();
 	projectileInstnace.position = self.position + Vector2(-100,0);
-	projectileInstnace.setup(Vector2(-1000,0));
+	projectileInstnace.setup(Vector2(-1000,0), tileMap);
 	get_node("/root").add_child(projectileInstnace);
 
 func _on_tree_exited():

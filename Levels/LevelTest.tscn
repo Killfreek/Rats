@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddyxv1i3eutg4"]
+[gd_scene load_steps=15 format=3 uid="uid://ddyxv1i3eutg4"]
 
 [ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="2_wt5t7"]
 [ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="3_sdepi"]
@@ -18,6 +18,12 @@ tile_data = PackedInt32Array(0, 7, 0)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ccwgg"]
 tile_data = PackedInt32Array(0, 65543, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_m5412"]
+tile_data = PackedInt32Array(0, 7, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
+tile_data = PackedInt32Array(0, 65543, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
 texture = ExtResource("7_ic54q")
@@ -53,6 +59,8 @@ pattern_1 = SubResource("TileMapPattern_xccvb")
 pattern_2 = SubResource("TileMapPattern_3a3b3")
 pattern_3 = SubResource("TileMapPattern_vr46u")
 pattern_4 = SubResource("TileMapPattern_ccwgg")
+pattern_5 = SubResource("TileMapPattern_m5412")
+pattern_6 = SubResource("TileMapPattern_1vqw2")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_28fn1")

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var spawnLocations : Array[Node2D]
 @export var enemyScene : Array[PackedScene]
+@export var tileMap : Node2D
 var playerNode : Area2D
 
 var spawnLocationsUseState : Array[bool]
@@ -11,8 +12,6 @@ var continueSpawnaing: bool;
 func _ready():
 	spawnLocationsUseState.resize(spawnLocations.size());
 	spawnLocationsUseState.fill(false);
-
-	#playerNode.connect("tree_exiting",_on_player_despawn);
 
 	continueSpawnaing = true;
 
@@ -25,7 +24,7 @@ func _on_enemy_spawn_timer_timeout():
 			var spawnLocation = spawnLocations[rngNumber];
 			var enimeyToSpawn = int(rng.randf_range(0, enemyScene.size()));
 			var enemy = enemyScene[enimeyToSpawn].instantiate();
-			enemy.setup(rngNumber, playerNode);
+			enemy.setup(rngNumber, playerNode, tileMap);
 			enemy.position = self.position + spawnLocation.position;
 
 			enemy.left.connect(_on_enemy_despawn);
