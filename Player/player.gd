@@ -122,7 +122,6 @@ func takeDamage(damage : int):
 		queue_free();
 
 func _on_movement_timer_timeout():
-	print("_on_movement_timer_timeout");
 	if velocaty != Vector2.ZERO:
 		var intendedFinalPosition = position + velocaty;
 		if playerArea.intersection(Rect2(

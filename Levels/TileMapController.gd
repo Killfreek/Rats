@@ -3,9 +3,21 @@ extends Node
 @export var tileMap : TileMap
 
 func tileTargetted(tilecords : Vector2):
-	var pattern = tileMap.tile_set.get_pattern(6);
-	tileMap.set_pattern(0, tileMap.local_to_map(tilecords), pattern);
+	var tilecordsMapped = tileMap.local_to_map(tilecords);
+	var isLight = tileMap.get_cell_tile_data(0, tilecordsMapped);
+	var isDark = tileMap.get_cell_tile_data(1, tilecordsMapped);
+	
+	if (isLight != null):
+		tileMap.set_pattern(0, tileMap.local_to_map(tilecords), tileMap.tile_set.get_pattern(5));
+	else:
+		tileMap.set_pattern(1, tileMap.local_to_map(tilecords), tileMap.tile_set.get_pattern(6));
 		
 func tileHit(tilecords : Vector2):
-	var pattern = tileMap.tile_set.get_pattern(3);
-	tileMap.set_pattern(0, tileMap.local_to_map(tilecords), pattern);
+	var tilecordsMapped = tileMap.local_to_map(tilecords);
+	var isLight = tileMap.get_cell_tile_data(0, tilecordsMapped);
+	var isDark = tileMap.get_cell_tile_data(1, tilecordsMapped);
+	
+	if (isLight != null):
+		tileMap.set_pattern(0, tilecordsMapped, tileMap.tile_set.get_pattern(3));
+	else:
+		tileMap.set_pattern(1, tilecordsMapped, tileMap.tile_set.get_pattern(4));
