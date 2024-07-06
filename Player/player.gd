@@ -11,6 +11,10 @@ extends Area2D
 
 @export var health : int
 
+@export var inputWindow : float
+
+@export var inputTimer : Timer
+
 var player
 var playerArea : Rect2
 var isMoving = false
@@ -20,6 +24,10 @@ var isDoingReverse = false;
 var lastButtonClicked = 0;
 var originalDistanceForMovement : float
 var movementStartPoint : Vector2
+
+var velocaty : Vector2
+
+var deltaL
 
 signal player_died;
 
@@ -32,56 +40,57 @@ func _ready():
 		PlayerAreaBottomRightCorner.position.x,
 		PlayerAreaBottomRightCorner.position.y);
 	$AnimatedSprite2D.animation = "Idle";
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocaty = Vector2.ZERO
+	deltaL = delta;
+	velocaty = Vector2.ZERO
 	if !isMoving:
-		if Input.is_action_pressed("MoveRight"): #2
-			velocaty.x += xStepDistance
-			lastButtonClicked = 2;
-		if Input.is_action_pressed("MoveLeft"):
-			velocaty.x -= xStepDistance
-			lastButtonClicked = 4;
-		if Input.is_action_pressed("MoveUp"):
-			velocaty.y -= yStepDistance
-			lastButtonClicked = 8;
-		if Input.is_action_pressed("MoveDown"):
-			velocaty.y += yStepDistance
-			lastButtonClicked = 16
-		
-		if velocaty != Vector2.ZERO:		
-			var intendedFinalPosition = position + velocaty;
-			if playerArea.intersection(Rect2(
-				intendedFinalPosition.x, intendedFinalPosition.y,
-				intendedFinalPosition.x, intendedFinalPosition.y)) != Rect2(0,0,0,0):
-					SetUpMovement(delta, player.position, velocaty);
+		CheckForMoveInput();
 	else:
-		var movementLeftToDo = player.global_position.distance_to(finalPosition);
-		var precentageMovementLeft = (movementLeftToDo / originalDistanceForMovement) * 100;
+		CheckForMovingPlayer(delta);
+			
+func CheckForMoveInput():
+	if Input.is_action_pressed("MoveRight"): #2
+		velocaty.x += xStepDistance
+		lastButtonClicked = 2;
+	if Input.is_action_pressed("MoveLeft"):
+		velocaty.x -= xStepDistance
+		lastButtonClicked = 4;
+	if Input.is_action_pressed("MoveUp"):
+		velocaty.y -= yStepDistance
+		lastButtonClicked = 8;
+	if Input.is_action_pressed("MoveDown"):
+		velocaty.y += yStepDistance
+		lastButtonClicked = 16
 
-		var canReverse = false
-		if Input.is_action_pressed("MoveRight") && lastButtonClicked == 4 && precentageMovementLeft >= CancelMovementThreshold:
-			canReverse = true
-			lastButtonClicked = 2;
-		if Input.is_action_pressed("MoveLeft") && lastButtonClicked == 2 && precentageMovementLeft >= CancelMovementThreshold:
-			canReverse = true
-			lastButtonClicked = 4;
-		if Input.is_action_pressed("MoveUp") && lastButtonClicked == 16 && precentageMovementLeft >= CancelMovementThreshold:
-			canReverse = true
-			lastButtonClicked = 8;
-		if Input.is_action_pressed("MoveDown") && lastButtonClicked == 8 && precentageMovementLeft >= CancelMovementThreshold:
-			canReverse = true
-			lastButtonClicked = 16
+func CheckForMovingPlayer(delta):
+	var movementLeftToDo = player.global_position.distance_to(finalPosition);
+	var precentageMovementLeft = (movementLeftToDo / originalDistanceForMovement) * 100;
 
-		if !canReverse:
-			move_ToTarget(delta);
-		elif canReverse && !isDoingReverse:
-			isDoingReverse = true;
-			isMoving = false;
-			velocaty = movementStartPoint - player.position;
-			SetUpMovement(delta, player.position, velocaty);
+	var canReverse = false
+	if Input.is_action_pressed("MoveRight") && lastButtonClicked == 4 && precentageMovementLeft >= CancelMovementThreshold:
+		canReverse = true
+		lastButtonClicked = 2;
+	if Input.is_action_pressed("MoveLeft") && lastButtonClicked == 2 && precentageMovementLeft >= CancelMovementThreshold:
+		canReverse = true
+		lastButtonClicked = 4;
+	if Input.is_action_pressed("MoveUp") && lastButtonClicked == 16 && precentageMovementLeft >= CancelMovementThreshold:
+		canReverse = true
+		lastButtonClicked = 8;
+	if Input.is_action_pressed("MoveDown") && lastButtonClicked == 8 && precentageMovementLeft >= CancelMovementThreshold:
+		canReverse = true
+		lastButtonClicked = 16
 
+	if !canReverse:
+		move_ToTarget(delta);
+	elif canReverse && !isDoingReverse:
+		isDoingReverse = true;
+		isMoving = false;
+		velocaty = movementStartPoint - player.position;
+		SetUpMovement(delta, player.position, velocaty);
+			
 func SetUpMovement(delta, postition, velocaty):
 	finalPosition = postition + velocaty;
 	isMoving = true;
@@ -111,3 +120,12 @@ func takeDamage(damage : int):
 	if (health <= 0):
 		player_died.emit();
 		queue_free();
+
+func _on_movement_timer_timeout():
+	print("_on_movement_timer_timeout");
+	if velocaty != Vector2.ZERO:
+		var intendedFinalPosition = position + velocaty;
+		if playerArea.intersection(Rect2(
+			intendedFinalPosition.x, intendedFinalPosition.y,
+			intendedFinalPosition.x, intendedFinalPosition.y)) != Rect2(0,0,0,0):
+				SetUpMovement(deltaL, player.position, velocaty);

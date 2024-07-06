@@ -32,5 +32,11 @@ func SpawnPlayer():
 	var playerNode = get_node("Player");
 	playerNode.connect("player_died", playerDied);
 	playerNode.connect("tree_exiting",EnemySpawnController._on_player_despawn);
+	
+	var timmerNode = get_node("Player/MovementTimer");
+	timmerNode.one_shot = false;
+	timmerNode.wait_time = playerNode.inputWindow;
+	timmerNode.connect("timeout",playerNode._on_movement_timer_timeout);
+	
 	EnemySpawnController.playerNode = playerNode;
 	EnemySpawnController.continueSpawnaing = true;
