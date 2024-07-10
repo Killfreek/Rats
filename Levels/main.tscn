@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di80l1kbhxfwb"]
+[gd_scene load_steps=11 format=3 uid="uid://di80l1kbhxfwb"]
 
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="1_o3snr"]
 [ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/Npcs/EnemywithCatapult.tscn" id="2_m7lru"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Levels/TileMapController.gd" id="6_xucic"]
 [ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="7_s2tei"]
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="8_le85l"]
+[ext_resource type="PackedScene" uid="uid://vinji51364t8" path="res://Levels/InGameMenu.tscn" id="9_00nvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]
 size = Vector2(20, 513)
@@ -68,5 +69,7 @@ EnemySpawnController = NodePath("../EnemySpawnLocations")
 
 [node name="PlayerAreaBottomRight" type="Node2D" parent="PlayerController"]
 position = Vector2(501, 501)
+
+[node name="InGameMenu" parent="." instance=ExtResource("9_00nvu")]
 
 [connection signal="timeout" from="EnemySpawnLocations/EnemySpawnTimer" to="EnemySpawnLocations" method="_on_enemy_spawn_timer_timeout"]

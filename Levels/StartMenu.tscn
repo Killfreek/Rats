@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djo5pnhexrurd"]
 
-[ext_resource type="Script" path="res://GUIScripts/Exit.gd" id="1_tq70x"]
+[ext_resource type="Script" path="res://GUIScripts/StartMenu/Exit.gd" id="1_tq70x"]
 
 [node name="StartMenu" type="Node2D"]
 
