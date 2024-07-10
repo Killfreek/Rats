@@ -7,13 +7,11 @@ var playerNode : Area2D
 
 var spawnLocationsUseState : Array[bool]
 
-var continueSpawnaing: bool;
+var continueSpawnaing: bool = false;
 
 func _ready():
 	spawnLocationsUseState.resize(spawnLocations.size());
 	spawnLocationsUseState.fill(false);
-
-	continueSpawnaing = true;
 
 
 func _on_enemy_spawn_timer_timeout():

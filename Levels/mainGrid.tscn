@@ -1,8 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biwn0qj033ttm"]
-
-[ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="2_wt5t7"]
-[ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="3_sdepi"]
-[ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="7_ic54q"]
+[gd_scene load_steps=9 format=3 uid="uid://cdjd8lbk2x22c"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5h67x"]
 tile_data = PackedInt32Array(0, 65543, 0, 65536, 7, 0, 1, 7, 0, 65537, 65543, 0)
@@ -25,35 +21,8 @@ tile_data = PackedInt32Array(0, 7, 1)
 [sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
 tile_data = PackedInt32Array(0, 65543, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
-texture = ExtResource("7_ic54q")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7ncy"]
-texture = ExtResource("2_wt5t7")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2jmy"]
-texture = ExtResource("3_sdepi")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_28fn1"]
 tile_size = Vector2i(100, 100)
-sources/7 = SubResource("TileSetAtlasSource_2fa46")
-sources/8 = SubResource("TileSetAtlasSource_t7ncy")
-sources/9 = SubResource("TileSetAtlasSource_b2jmy")
 pattern_0 = SubResource("TileMapPattern_5h67x")
 pattern_1 = SubResource("TileMapPattern_xccvb")
 pattern_2 = SubResource("TileMapPattern_3a3b3")
@@ -62,7 +31,9 @@ pattern_4 = SubResource("TileMapPattern_ccwgg")
 pattern_5 = SubResource("TileMapPattern_m5412")
 pattern_6 = SubResource("TileMapPattern_1vqw2")
 
-[node name="TileMap" type="TileMap"]
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_28fn1")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 7, 0, 65536, 65543, 0, 65537, 7, 0, 65538, 65543, 0, 1, 65543, 0, 2, 7, 0, 3, 65543, 0, 65539, 7, 0, 4, 7, 0, 65540, 65543, 0, 196612, 65543, 0, 131076, 7, 0, 262148, 7, 0, 262149, 65543, 0, 196614, 65543, 0, 131079, 65543, 0, 65544, 65543, 0, 9, 65543, 0, 65546, 65543, 0, 11, 65543, 0, 131083, 65543, 0, 196618, 65543, 0, 262155, 65543, 0, 262153, 65543, 0, 262151, 65543, 0, 196616, 65543, 0, 131081, 65543, 0, 131077, 65543, 0, 65542, 65543, 0, 5, 65543, 0, 7, 65543, 0, 196613, 7, 0, 65541, 7, 0, 131078, 7, 0, 6, 7, 0, 262150, 7, 0, 196615, 7, 0, 65543, 7, 0, 131080, 7, 0, 8, 7, 0, 65545, 7, 0, 10, 7, 0, 131082, 7, 0, 65547, 7, 0, 196619, 7, 0, 196617, 7, 0, 262152, 7, 0, 262154, 7, 0, 131072, 7, 0, 196608, 65543, 0, 131073, 65543, 0, 196609, 7, 0, 131074, 7, 0, 196610, 65543, 0, 262146, 7, 0, 131075, 65543, 0, 196611, 7, 0, 262147, 65543, 0, 262144, 7, 0, 262145, 65543, 0, -65536, 9, 0, -65535, 9, 0, -65534, 9, 0, -65533, 9, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 9, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, 327680, 9, 1, 327681, 9, 1, 327682, 9, 1, 327683, 9, 1, 327684, 9, 1, 327685, 9, 1, 327686, 9, 1, 327687, 9, 1, 327688, 9, 1, 327689, 9, 1, 327690, 9, 1, 327691, 9, 1)

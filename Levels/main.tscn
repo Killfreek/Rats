@@ -1,17 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://di80l1kbhxfwb"]
+[gd_scene load_steps=21 format=3 uid="uid://di80l1kbhxfwb"]
 
 [ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="1_o3snr"]
 [ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/Npcs/EnemywithCatapult.tscn" id="2_m7lru"]
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/Npcs/EnemywithGun.tscn" id="3_tykuc"]
 [ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/Npcs/EnemywithRocket.tscn" id="4_xusaf"]
-[ext_resource type="PackedScene" uid="uid://biwn0qj033ttm" path="res://Levels/LevelTest.tscn" id="5_rpyy2"]
 [ext_resource type="Script" path="res://Levels/TileMapController.gd" id="6_xucic"]
 [ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="7_s2tei"]
+[ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="8_001wk"]
 [ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="8_le85l"]
 [ext_resource type="PackedScene" uid="uid://vinji51364t8" path="res://Levels/InGameMenu.tscn" id="9_00nvu"]
+[ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="9_sqs3m"]
+[ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="10_idk6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pec6s"]
 size = Vector2(20, 513)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vr46u"]
+tile_data = PackedInt32Array(0, 7, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ccwgg"]
+tile_data = PackedInt32Array(0, 65543, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_m5412"]
+tile_data = PackedInt32Array(0, 7, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
+tile_data = PackedInt32Array(0, 65543, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
+texture = ExtResource("8_001wk")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7ncy"]
+texture = ExtResource("9_sqs3m")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2jmy"]
+texture = ExtResource("10_idk6u")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_60w6c"]
+tile_size = Vector2i(100, 100)
+sources/7 = SubResource("TileSetAtlasSource_2fa46")
+sources/8 = SubResource("TileSetAtlasSource_t7ncy")
+sources/9 = SubResource("TileSetAtlasSource_b2jmy")
+pattern_0 = SubResource("TileMapPattern_vr46u")
+pattern_1 = SubResource("TileMapPattern_ccwgg")
+pattern_2 = SubResource("TileMapPattern_m5412")
+pattern_3 = SubResource("TileMapPattern_1vqw2")
 
 [node name="Main" type="Node2D"]
 
@@ -42,14 +90,6 @@ position = Vector2(0, 400)
 [node name="EnemySpawnTimer" type="Timer" parent="EnemySpawnLocations"]
 autostart = true
 
-[node name="TileMap" parent="." node_paths=PackedStringArray("tileMap") instance=ExtResource("5_rpyy2")]
-layer_0/name = "Light"
-layer_0/tile_data = PackedInt32Array(0, 7, 0, 65537, 7, 0, 2, 7, 0, 65539, 7, 0, 4, 7, 0, 131076, 7, 0, 262148, 7, 0, 196613, 7, 0, 65541, 7, 0, 131078, 7, 0, 6, 7, 0, 262150, 7, 0, 196615, 7, 0, 65543, 7, 0, 131080, 7, 0, 8, 7, 0, 65545, 7, 0, 10, 7, 0, 131082, 7, 0, 65547, 7, 0, 196619, 7, 0, 196617, 7, 0, 262152, 7, 0, 262154, 7, 0, 131072, 7, 0, 196609, 7, 0, 131074, 7, 0, 262146, 7, 0, 196611, 7, 0, 262144, 7, 0, -65536, 65545, 0, -65535, 9, 0, -65534, 9, 0, -65533, 65545, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 65545, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, 327680, 9, 1, 327681, 65545, 1, 327682, 9, 1, 327683, 9, 1, 327684, 9, 1, 327685, 65545, 1, 327686, 9, 1, 327687, 9, 1, 327688, 9, 1, 327689, 65545, 1, 327690, 9, 1, 327691, 9, 1)
-layer_1/name = "Dark"
-layer_1/tile_data = PackedInt32Array(1, 65543, 0, 65536, 65543, 0, 131073, 65543, 0, 196608, 65543, 0, 262145, 65543, 0, 196610, 65543, 0, 65538, 65543, 0, 3, 65543, 0, 65540, 65543, 0, 131075, 65543, 0, 196612, 65543, 0, 262147, 65543, 0, 262149, 65543, 0, 196614, 65543, 0, 131077, 65543, 0, 65542, 65543, 0, 5, 65543, 0, 7, 65543, 0, 65544, 65543, 0, 131079, 65543, 0, 196616, 65543, 0, 262151, 65543, 0, 262153, 65543, 0, 196618, 65543, 0, 131081, 65543, 0, 65546, 65543, 0, 9, 65543, 0, 11, 65543, 0, 131083, 65543, 0, 262155, 65543, 0)
-script = ExtResource("6_xucic")
-tileMap = NodePath(".")
-
 [node name="DeleteZone" type="Area2D" parent="."]
 position = Vector2(-50, 0)
 
@@ -71,5 +111,15 @@ EnemySpawnController = NodePath("../EnemySpawnLocations")
 position = Vector2(501, 501)
 
 [node name="InGameMenu" parent="." instance=ExtResource("9_00nvu")]
+
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tileMap")]
+tile_set = SubResource("TileSet_60w6c")
+format = 2
+layer_0/name = "Light"
+layer_0/tile_data = PackedInt32Array(-65536, 9, 0, -65535, 9, 0, -65534, 9, 0, -65533, 9, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 9, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, 327680, 9, 1, 327681, 9, 1, 327682, 9, 1, 327683, 9, 1, 327684, 9, 1, 327685, 9, 1, 327686, 9, 1, 327687, 9, 1, 327688, 9, 1, 327689, 9, 1, 327690, 9, 1, 327691, 9, 1, 262144, 7, 0, 131072, 7, 0, 0, 7, 0, 65537, 7, 0, 196609, 7, 0, 131074, 7, 0, 2, 7, 0, 262146, 7, 0, 196611, 7, 0, 65539, 7, 0, 4, 7, 0, 131076, 7, 0, 262148, 7, 0, 196613, 7, 0, 65541, 7, 0, 6, 7, 0, 131078, 7, 0, 262150, 7, 0, 196615, 7, 0, 65543, 7, 0, 8, 7, 0, 131080, 7, 0, 262152, 7, 0, 196617, 7, 0, 65545, 7, 0, 10, 7, 0, 131082, 7, 0, 262154, 7, 0, 196619, 7, 0, 65547, 7, 0)
+layer_1/name = "Dark"
+layer_1/tile_data = PackedInt32Array(196608, 65543, 0, 131073, 65543, 0, 65536, 65543, 0, 1, 65543, 0, 65538, 65543, 0, 196610, 65543, 0, 262145, 65543, 0, 262147, 65543, 0, 196612, 65543, 0, 131075, 65543, 0, 3, 65543, 0, 65540, 65543, 0, 5, 65543, 0, 65542, 65543, 0, 131077, 65543, 0, 196614, 65543, 0, 262149, 65543, 0, 262151, 65543, 0, 196616, 65543, 0, 131079, 65543, 0, 7, 65543, 0, 65544, 65543, 0, 9, 65543, 0, 65546, 65543, 0, 131081, 65543, 0, 196618, 65543, 0, 262153, 65543, 0, 262155, 65543, 0, 131083, 65543, 0, 11, 65543, 0)
+script = ExtResource("6_xucic")
+tileMap = NodePath(".")
 
 [connection signal="timeout" from="EnemySpawnLocations/EnemySpawnTimer" to="EnemySpawnLocations" method="_on_enemy_spawn_timer_timeout"]
