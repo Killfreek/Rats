@@ -40,7 +40,7 @@ func spawnProjectile():
 	var projectileInstnace = projectile.instantiate();
 	projectileInstnace.position = self.position + Vector2(-100,0);
 	projectileInstnace.setup(Vector2(-1000,0), tileMap);
-	get_node("/root").add_child(projectileInstnace);
+	tileMap.add_child(projectileInstnace);
 
 func _on_tree_exited():
 	left.emit(rowPosition);
