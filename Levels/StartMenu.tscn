@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://djo5pnhexrurd"]
+[gd_scene load_steps=3 format=3 uid="uid://djo5pnhexrurd"]
 
-[ext_resource type="Script" path="res://GUIScripts/StartMenu/Exit.gd" id="1_tq70x"]
+[ext_resource type="Script" path="res://GUIScripts/StartMenu.gd" id="1_r4t0u"]
+
+[sub_resource type="GDScript" id="GDScript_emjdo"]
+script/source = "extends Node
+
+func _on_pressed():
+	get_tree().quit();
+"
 
 [node name="StartMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_r4t0u")
 
 [node name="Play" type="Button" parent="."]
 offset_left = 495.0
@@ -27,6 +35,8 @@ offset_top = 222.0
 offset_right = 584.0
 offset_bottom = 253.0
 text = "Exit"
-script = ExtResource("1_tq70x")
+script = SubResource("GDScript_emjdo")
 
-[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
