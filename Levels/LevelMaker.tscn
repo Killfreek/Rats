@@ -56,6 +56,7 @@ pattern_3 = SubResource("TileMapPattern_1vqw2")
 [node name="LevelMaker" type="Node2D"]
 
 [node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelCreator") instance=ExtResource("1_ff7r6")]
+top_level = true
 levelCreator = NodePath("../LevelCreator")
 
 [node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap")]
