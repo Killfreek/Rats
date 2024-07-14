@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vinji51364t8"]
+[gd_scene load_steps=3 format=3 uid="uid://vinji51364t8"]
 
 [ext_resource type="Script" path="res://GUIScripts/InGameMenu.gd" id="1_vpmid"]
+[ext_resource type="Texture2D" uid="uid://dl6tf4y3r6oc0" path="res://Sprites/Puttons/PlayPuttonTest.png" id="2_mm5l3"]
 
 [node name="InGameMenu" type="Control"]
 process_mode = 3
@@ -20,10 +21,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Play" type="Button" parent="."]
 layout_mode = 0
 offset_left = 423.0
-offset_top = 56.0
-offset_right = 464.0
-offset_bottom = 87.0
-text = "Play"
+offset_right = 831.0
+offset_bottom = 208.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("2_mm5l3")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
