@@ -19,10 +19,10 @@ func createBoard(rows, columns):
 	boardColumnSize = columns;
 
 func setSpawnPoint(row, column):
-	if row > boardRowSize || boardRowSize == 0:
+	if row > boardRowSize - 1 || boardRowSize == 0:
 		return [false, "row is bigger than board size"]
 	
-	if column > boardColumnSize || boardColumnSize == 0:
+	if column > boardColumnSize - 1 || boardColumnSize == 0:
 		return [false, "col is bigger than board size"]
 
 	SpawnPointIndicator.position = tileMap.map_to_local(Vector2(column, row));
