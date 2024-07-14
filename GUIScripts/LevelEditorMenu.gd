@@ -1,12 +1,12 @@
 extends Node
 
-@export var levelCreator : Node;
+@export var levelAssembler : Node;
 
 func _on_exit_btn_pressed():
 	get_tree().change_scene_to_file("res://Levels/StartMenu.tscn");
 
 func _on_run_btn_pressed():
-	pass # Replace with function body.
+	levelAssembler.RunLevel();
 
 func _on_save_btn_pressed():
 	pass # Replace with function body.
@@ -34,7 +34,7 @@ func _on_set_board_size_btn_pressed():
 		errorLabelNode.text = "Max number of columns allowed is 12";
 		return;
 		
-	levelCreator.createBoard(rows,columns);
+	levelAssembler.createBoard(rows,columns);
 
 
 func _on_place_spawn_point_btn_pressed():
@@ -47,6 +47,6 @@ func _on_place_spawn_point_btn_pressed():
 	var rowSPPoint = rowSPPointNode.text.to_int() - 1;
 	var columnSPPoint = colSPPointNode.text.to_int() - 1;
 	
-	var result = levelCreator.setSpawnPoint(rowSPPoint, columnSPPoint);
+	var result = levelAssembler.setSpawnPoint(rowSPPoint, columnSPPoint);
 	if 	!result[0]:
 		errorLabelNode.text = result[1];

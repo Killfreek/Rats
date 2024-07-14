@@ -1,0 +1,129 @@
+[gd_scene load_steps=22 format=3 uid="uid://d0qk0i5jnbcm0"]
+
+[ext_resource type="Script" path="res://Scripts/LevelCreator.gd" id="1_flix3"]
+[ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="1_fsalg"]
+[ext_resource type="PackedScene" uid="uid://b2vihdt08h1js" path="res://Player/player.tscn" id="2_f8cuk"]
+[ext_resource type="PackedScene" uid="uid://vinji51364t8" path="res://Levels/InGameMenu.tscn" id="3_oadbb"]
+[ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="4_kif0k"]
+[ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="5_0rbdn"]
+[ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="6_roouv"]
+[ext_resource type="Script" path="res://Levels/TileMapController.gd" id="7_tcc1d"]
+[ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="8_eda62"]
+[ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/Npcs/EnemywithCatapult.tscn" id="9_ga7wq"]
+[ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/Npcs/EnemywithGun.tscn" id="10_b66ai"]
+[ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/Npcs/EnemywithRocket.tscn" id="11_4vyar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ricxn"]
+size = Vector2(20, 513)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vr46u"]
+tile_data = PackedInt32Array(0, 7, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ccwgg"]
+tile_data = PackedInt32Array(0, 65543, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_m5412"]
+tile_data = PackedInt32Array(0, 7, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
+tile_data = PackedInt32Array(0, 65543, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
+texture = ExtResource("4_kif0k")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7ncy"]
+texture = ExtResource("5_0rbdn")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2jmy"]
+texture = ExtResource("6_roouv")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xq86r"]
+tile_size = Vector2i(100, 100)
+sources/7 = SubResource("TileSetAtlasSource_2fa46")
+sources/8 = SubResource("TileSetAtlasSource_t7ncy")
+sources/9 = SubResource("TileSetAtlasSource_b2jmy")
+pattern_0 = SubResource("TileMapPattern_vr46u")
+pattern_1 = SubResource("TileMapPattern_ccwgg")
+pattern_2 = SubResource("TileMapPattern_m5412")
+pattern_3 = SubResource("TileMapPattern_1vqw2")
+
+[node name="LevelCreatorTester" type="Node" node_paths=PackedStringArray("tileMap", "playerController", "enemyController")]
+script = ExtResource("1_flix3")
+tileMap = NodePath("TileMap")
+playerController = NodePath("PlayerController")
+enemyController = NodePath("EnemySpawnLocations")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 249)
+
+[node name="DeleteZone" type="Area2D" parent="."]
+position = Vector2(-50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteZone"]
+position = Vector2(0, 246.5)
+shape = SubResource("RectangleShape2D_ricxn")
+
+[node name="PlayerController" type="Node2D" parent="." node_paths=PackedStringArray("PlayerAreaTopLeftCorner", "PlayerAreaBottomRightCorner", "EnemySpawnController")]
+script = ExtResource("1_fsalg")
+player = ExtResource("2_f8cuk")
+playerSpawnLocation = Vector2(250, 250)
+PlayerAreaTopLeftCorner = NodePath("PlayerAreaTopLeft")
+PlayerAreaBottomRightCorner = NodePath("PlayerAreaBottomRight")
+EnemySpawnController = NodePath("../EnemySpawnLocations")
+
+[node name="PlayerAreaTopLeft" type="Node2D" parent="PlayerController"]
+
+[node name="PlayerAreaBottomRight" type="Node2D" parent="PlayerController"]
+position = Vector2(501, 501)
+
+[node name="InGameMenu" parent="." instance=ExtResource("3_oadbb")]
+top_level = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_xq86r")
+format = 2
+layer_0/name = "Light"
+layer_1/name = "Dark"
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("7_tcc1d")
+
+[node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations", "tileMap")]
+position = Vector2(1150, 49)
+script = ExtResource("8_eda62")
+spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
+enemyScene = Array[PackedScene]([ExtResource("9_ga7wq"), ExtResource("10_b66ai"), ExtResource("11_4vyar")])
+tileMap = NodePath("../TileMap")
+
+[node name="EnemySpawnLocation1" type="Node2D" parent="EnemySpawnLocations"]
+
+[node name="EnemySpawnLocation2" type="Node2D" parent="EnemySpawnLocations"]
+position = Vector2(0, 100)
+
+[node name="EnemySpwanLocation3" type="Node2D" parent="EnemySpawnLocations"]
+position = Vector2(0, 200)
+
+[node name="EnemySpwanLocation4" type="Node2D" parent="EnemySpawnLocations"]
+position = Vector2(0, 300)
+
+[node name="EnemySpwanLocation5" type="Node2D" parent="EnemySpawnLocations"]
+position = Vector2(0, 400)
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemySpawnLocations"]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawnLocations/EnemySpawnTimer" to="EnemySpawnLocations" method="_on_enemy_spawn_timer_timeout"]

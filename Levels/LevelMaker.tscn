@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dmy7tcnpc5h32"]
 
 [ext_resource type="PackedScene" uid="uid://3vctrcckf8dt" path="res://Levels/UI/LevelEditorUI.tscn" id="1_ff7r6"]
-[ext_resource type="Script" path="res://Scripts/LevelCreator.gd" id="2_k1qtf"]
+[ext_resource type="Script" path="res://Scripts/LevelAssembler.gd" id="2_k1qtf"]
 [ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="3_81qwc"]
 [ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="4_dgbl2"]
 [ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="5_26oh1"]
@@ -93,17 +93,17 @@ animations = [{
 
 [node name="LevelMaker" type="Node2D"]
 
-[node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelCreator") instance=ExtResource("1_ff7r6")]
+[node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelAssembler") instance=ExtResource("1_ff7r6")]
 top_level = true
-levelCreator = NodePath("../LevelCreator")
+levelAssembler = NodePath("../LevelAssembler")
 
-[node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap", "SpawnPointIndicator")]
+[node name="LevelAssembler" type="Node2D" parent="." node_paths=PackedStringArray("tileMap", "SpawnPointIndicator")]
 script = ExtResource("2_k1qtf")
 tileMap = NodePath("TileMap")
 SpawnPointIndicator = NodePath("TileMap/AnimatedSprite2D")
 tileWidth = 100
 
-[node name="TileMap" type="TileMap" parent="LevelCreator"]
+[node name="TileMap" type="TileMap" parent="LevelAssembler"]
 position = Vector2(100, 50)
 tile_set = SubResource("TileSet_f0nmp")
 format = 2
@@ -111,7 +111,8 @@ layer_0/name = "Light"
 layer_1/name = "Dark"
 layer_1/tile_data = PackedInt32Array()
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LevelCreator/TileMap"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LevelAssembler/TileMap"]
+visible = false
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_w41nn")
 animation = &"Idle"
