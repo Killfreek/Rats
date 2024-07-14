@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CustomLevelVars="*res://Scripts/Singelton.gd"
+CustomLevelVars="*res://Scripts/CustomLevelVars.gd"
 
 [input]
 
