@@ -9,6 +9,7 @@ anchors_preset = 0
 script = ExtResource("1_vpmid")
 
 [node name="Exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 424.0
 offset_top = 106.0
 offset_right = 465.0
@@ -17,6 +18,7 @@ text = "Exit"
 metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="."]
+layout_mode = 0
 offset_left = 423.0
 offset_top = 56.0
 offset_right = 464.0

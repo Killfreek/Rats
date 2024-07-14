@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdjd8lbk2x22c"]
+[gd_scene load_steps=9 format=3 uid="uid://b1y0sdtd6rv17"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5h67x"]
 tile_data = PackedInt32Array(0, 65543, 0, 65536, 7, 0, 1, 7, 0, 65537, 65543, 0)

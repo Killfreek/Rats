@@ -111,6 +111,7 @@ EnemySpawnController = NodePath("../EnemySpawnLocations")
 position = Vector2(501, 501)
 
 [node name="InGameMenu" parent="." instance=ExtResource("9_00nvu")]
+top_level = true
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tileMap")]
 tile_set = SubResource("TileSet_60w6c")
