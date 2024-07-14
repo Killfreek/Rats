@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmy7tcnpc5h32"]
+
+[ext_resource type="PackedScene" uid="uid://3vctrcckf8dt" path="res://Levels/UI/LevelEditorUI.tscn" id="1_ff7r6"]
+
+[node name="LevelMaker" type="Node2D"]
+
+[node name="LevelEditorUI" parent="." instance=ExtResource("1_ff7r6")]
