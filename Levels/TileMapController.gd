@@ -9,7 +9,7 @@ func tileTargetted(tilecords : Vector2):
 	
 	if (isLight != null):
 		tileMap.set_pattern(0, tileMap.local_to_map(tilecords), tileMap.tile_set.get_pattern(2));
-	else:
+	if (isDark != null):
 		tileMap.set_pattern(1, tileMap.local_to_map(tilecords), tileMap.tile_set.get_pattern(3));
 		
 func tileHit(tilecords : Vector2):
@@ -19,5 +19,5 @@ func tileHit(tilecords : Vector2):
 	
 	if (isLight != null):
 		tileMap.set_pattern(0, tilecordsMapped, tileMap.tile_set.get_pattern(0));
-	else:
+	if (isDark != null):
 		tileMap.set_pattern(1, tilecordsMapped, tileMap.tile_set.get_pattern(1));
