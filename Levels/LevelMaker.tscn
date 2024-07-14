@@ -1,7 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmy7tcnpc5h32"]
+[gd_scene load_steps=15 format=3 uid="uid://dmy7tcnpc5h32"]
 
 [ext_resource type="PackedScene" uid="uid://3vctrcckf8dt" path="res://Levels/UI/LevelEditorUI.tscn" id="1_ff7r6"]
+[ext_resource type="Script" path="res://Scripts/LevelCreator.gd" id="2_k1qtf"]
+[ext_resource type="Texture2D" uid="uid://3acj24ecna82" path="res://Sprites/Background/GrassTials.png" id="3_81qwc"]
+[ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="4_dgbl2"]
+[ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="5_26oh1"]
+[ext_resource type="Script" path="res://Levels/TileMapController.gd" id="6_aq2ji"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vr46u"]
+tile_data = PackedInt32Array(0, 7, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ccwgg"]
+tile_data = PackedInt32Array(0, 65543, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_m5412"]
+tile_data = PackedInt32Array(0, 7, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
+tile_data = PackedInt32Array(0, 65543, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
+texture = ExtResource("3_81qwc")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7ncy"]
+texture = ExtResource("4_dgbl2")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2jmy"]
+texture = ExtResource("5_26oh1")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f0nmp"]
+tile_size = Vector2i(100, 100)
+sources/7 = SubResource("TileSetAtlasSource_2fa46")
+sources/8 = SubResource("TileSetAtlasSource_t7ncy")
+sources/9 = SubResource("TileSetAtlasSource_b2jmy")
+pattern_0 = SubResource("TileMapPattern_vr46u")
+pattern_1 = SubResource("TileMapPattern_ccwgg")
+pattern_2 = SubResource("TileMapPattern_m5412")
+pattern_3 = SubResource("TileMapPattern_1vqw2")
 
 [node name="LevelMaker" type="Node2D"]
 
-[node name="LevelEditorUI" parent="." instance=ExtResource("1_ff7r6")]
+[node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelCreator") instance=ExtResource("1_ff7r6")]
+levelCreator = NodePath("../LevelCreator")
+
+[node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap")]
+position = Vector2(500, 250)
+script = ExtResource("2_k1qtf")
+tileMap = NodePath("TileMap")
+
+[node name="TileMap" type="TileMap" parent="LevelCreator" node_paths=PackedStringArray("tileMap")]
+tile_set = SubResource("TileSet_f0nmp")
+format = 2
+layer_0/name = "Light"
+layer_1/name = "Dark"
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("6_aq2ji")
+tileMap = NodePath(".")

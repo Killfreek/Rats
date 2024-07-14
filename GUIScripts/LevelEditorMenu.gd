@@ -1,5 +1,7 @@
 extends Node
 
+@export var levelCreator : Node;
+
 func _on_exit_btn_pressed():
 	get_tree().change_scene_to_file("res://Levels/StartMenu.tscn");
 
@@ -23,3 +25,5 @@ func _on_set_board_size_btn_pressed():
 	if  rows == 0 || columns == 0:
 		errorLabelNode.text = "Both row and columns must be ints";
 		return;
+		
+	levelCreator.createBoard(rows,columns);
