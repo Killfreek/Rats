@@ -59,12 +59,14 @@ pattern_3 = SubResource("TileMapPattern_1vqw2")
 top_level = true
 levelCreator = NodePath("../LevelCreator")
 
-[node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap")]
-position = Vector2(100, 50)
+[node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap", "SpawnPointIndicator")]
 script = ExtResource("2_k1qtf")
 tileMap = NodePath("TileMap")
+SpawnPointIndicator = NodePath("SpawnPointIndicator")
+tileWidth = 100
 
 [node name="TileMap" type="TileMap" parent="LevelCreator" node_paths=PackedStringArray("tileMap")]
+position = Vector2(100, 50)
 tile_set = SubResource("TileSet_f0nmp")
 format = 2
 layer_0/name = "Light"
@@ -72,3 +74,10 @@ layer_1/name = "Dark"
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("6_aq2ji")
 tileMap = NodePath(".")
+
+[node name="SpawnPointIndicator" type="Button" parent="LevelCreator"]
+visible = false
+offset_right = 27.0
+offset_bottom = 31.0
+disabled = true
+text = "SP"
