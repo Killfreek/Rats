@@ -8,4 +8,4 @@ func createBoard(rows, columns):
 	var pattern = tileMap.tile_set.get_pattern(1);
 	for row in range(rows):
 		for col in range(columns):
-			tileMap.set_pattern(0, Vector2(row, col), pattern);
+			tileMap.set_pattern(0, Vector2(col, row), pattern);

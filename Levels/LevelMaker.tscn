@@ -60,7 +60,7 @@ top_level = true
 levelCreator = NodePath("../LevelCreator")
 
 [node name="LevelCreator" type="Node2D" parent="." node_paths=PackedStringArray("tileMap")]
-position = Vector2(500, 250)
+position = Vector2(100, 50)
 script = ExtResource("2_k1qtf")
 tileMap = NodePath("TileMap")
 
