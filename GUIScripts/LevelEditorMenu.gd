@@ -44,8 +44,8 @@ func _on_place_spawn_point_btn_pressed():
 	var rowSPPointNode = get_node("SetSpwanPoint/PlaceSpawnPointRowsTxt");		
 	var colSPPointNode = get_node("SetSpwanPoint/PlaceSpawnPointColumnsTxt");
 		
-	var rowSPPoint = rowSPPointNode.text.to_int();
-	var columnSPPoint = colSPPointNode.text.to_int();
+	var rowSPPoint = rowSPPointNode.text.to_int() - 1;
+	var columnSPPoint = colSPPointNode.text.to_int() - 1;
 	
 	var result = levelCreator.setSpawnPoint(rowSPPoint, columnSPPoint);
 	if 	!result[0]:
