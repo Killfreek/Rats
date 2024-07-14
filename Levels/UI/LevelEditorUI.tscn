@@ -36,15 +36,6 @@ offset_bottom = 86.0
 text = "Save
 "
 
-[node name="PlaceSpawnPointBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 603.0
-offset_right = 151.0
-offset_bottom = 634.0
-text = "Set Spawn Point
-"
-
 [node name="BoardGameDimensions" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -52,49 +43,97 @@ offset_bottom = 40.0
 
 [node name="SetBoardSizeBtn" type="Button" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 607.0
-offset_top = 596.0
-offset_right = 725.0
-offset_bottom = 627.0
+offset_left = 437.0
+offset_top = 592.0
+offset_right = 555.0
+offset_bottom = 623.0
 text = "Set Board Size"
 
 [node name="BoardRowsLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 604.0
-offset_right = 277.0
-offset_bottom = 627.0
+offset_left = 15.0
+offset_top = 600.0
+offset_right = 107.0
+offset_bottom = 623.0
 text = "Board Rows"
 
 [node name="BoardColumnsLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 377.0
-offset_top = 601.0
-offset_right = 496.0
-offset_bottom = 624.0
+offset_left = 207.0
+offset_top = 597.0
+offset_right = 326.0
+offset_bottom = 620.0
 text = "Board Columns"
 
 [node name="BoardRowsTxt" type="TextEdit" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 604.0
-offset_right = 343.0
-offset_bottom = 628.0
+offset_left = 124.0
+offset_top = 600.0
+offset_right = 173.0
+offset_bottom = 624.0
 
 [node name="BoardColumnsTxt" type="TextEdit" parent="BoardGameDimensions"]
-offset_left = 517.0
-offset_top = 599.0
-offset_right = 566.0
-offset_bottom = 623.0
+offset_left = 347.0
+offset_top = 595.0
+offset_right = 396.0
+offset_bottom = 619.0
 
 [node name="SetBoardSizeLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 742.0
-offset_top = 597.0
-offset_right = 807.0
+offset_left = 439.0
+offset_top = 557.0
+offset_right = 504.0
+offset_bottom = 580.0
+
+[node name="SetSpwanPoint" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlaceSpawnPointBtn" type="Button" parent="SetSpwanPoint"]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 589.0
+offset_right = 1123.0
 offset_bottom = 620.0
+text = "Set Spawn Point
+"
+
+[node name="PlaceSpawnPointRowsLbl" type="Label" parent="SetSpwanPoint"]
+offset_left = 581.0
+offset_top = 595.0
+offset_right = 673.0
+offset_bottom = 618.0
+text = "SP row"
+
+[node name="PlaceSpawnPointColumnsLbl" type="Label" parent="SetSpwanPoint"]
+offset_left = 773.0
+offset_top = 592.0
+offset_right = 892.0
+offset_bottom = 615.0
+text = "Sp column
+"
+
+[node name="PlaceSpawnPointRowsTxt" type="TextEdit" parent="SetSpwanPoint"]
+offset_left = 690.0
+offset_top = 595.0
+offset_right = 739.0
+offset_bottom = 619.0
+
+[node name="PlaceSpawnPointColumnsTxt" type="TextEdit" parent="SetSpwanPoint"]
+offset_left = 913.0
+offset_top = 590.0
+offset_right = 962.0
+offset_bottom = 614.0
+
+[node name="PlaceSpawnPointLbl" type="Label" parent="SetSpwanPoint"]
+offset_left = 991.0
+offset_top = 539.0
+offset_right = 1056.0
+offset_bottom = 562.0
 
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="SaveBtn" to="." method="_on_save_btn_pressed"]
 [connection signal="pressed" from="BoardGameDimensions/SetBoardSizeBtn" to="." method="_on_set_board_size_btn_pressed"]
+[connection signal="pressed" from="SetSpwanPoint/PlaceSpawnPointBtn" to="." method="_on_place_spawn_point_btn_pressed"]
