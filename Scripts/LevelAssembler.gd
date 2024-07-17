@@ -32,5 +32,6 @@ func setSpawnPoint(row, column):
 func RunLevel():
 	CustomLevelVars.BoardRowLength = boardRowSize;
 	CustomLevelVars.BoardCoumnLength = boardColumnSize;
+	CustomLevelVars.SpawnPosition = SpawnPointIndicator.position;
 	
 	get_tree().change_scene_to_file("res://Levels/LevelCreatorTester.tscn");

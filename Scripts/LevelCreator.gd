@@ -6,6 +6,7 @@ extends Node
 
 func _ready():
 	setUpBoard(CustomLevelVars.BoardRowLength, CustomLevelVars.BoardCoumnLength);
+	setUpPlayer(CustomLevelVars.SpawnPosition);
 
 func setUpBoard(rows, columns):
 	tileMap.clear();
@@ -14,3 +15,7 @@ func setUpBoard(rows, columns):
 	for row in range(rows):
 		for col in range(columns):
 			tileMap.set_pattern(0, tileMap.local_to_map(Vector2(col * 100, row * 100)), pattern);
+
+func setUpPlayer(position):
+	playerController.playerSpawnLocation = position;
+	playerController.SpawnPlayer();

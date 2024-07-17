@@ -95,6 +95,7 @@ position = Vector2(501, 501)
 top_level = true
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tileMap")]
+z_index = -1
 tile_set = SubResource("TileSet_xq86r")
 format = 2
 layer_0/name = "Light"

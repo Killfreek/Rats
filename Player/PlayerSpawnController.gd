@@ -10,9 +10,6 @@ extends Node
 
 var canSpawn : bool
 
-func _ready():
-	SpawnPlayer();
-
 func _process(delta):
 	if Input.is_action_pressed("SpawnPlayer") && canSpawn:
 		SpawnPlayer();
@@ -27,6 +24,7 @@ func SpawnPlayer():
 	player.PlayerAreaBottomRightCorner = PlayerAreaBottomRightCorner;
 	player.position = playerSpawnLocation;
 	player.name = "Player";
+	player.top_level = true;
 	add_child(player);
 
 	var playerNode = get_node("Player");
