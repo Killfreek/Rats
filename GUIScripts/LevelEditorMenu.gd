@@ -38,11 +38,11 @@ func _on_set_board_size_btn_pressed():
 
 
 func _on_place_spawn_point_btn_pressed():
-	var errorLabelNode = get_node("SetSpwanPoint/PlaceSpawnPointLbl");
+	var errorLabelNode = get_node("SetSpawnPoint/PlaceSpawnPointLbl");
 	errorLabelNode.text = "";
 	
-	var rowSPPointNode = get_node("SetSpwanPoint/PlaceSpawnPointRowsTxt");		
-	var colSPPointNode = get_node("SetSpwanPoint/PlaceSpawnPointColumnsTxt");
+	var rowSPPointNode = get_node("SetSpawnPoint/PlaceSpawnPointRowsTxt");		
+	var colSPPointNode = get_node("SetSpawnPoint/PlaceSpawnPointColumnsTxt");
 		
 	var rowSPPoint = rowSPPointNode.text.to_int() - 1;
 	var columnSPPoint = colSPPointNode.text.to_int() - 1;

@@ -92,6 +92,7 @@ animations = [{
 }]
 
 [node name="LevelMaker" type="Node2D"]
+script = ExtResource("2_k1qtf")
 
 [node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelAssembler") instance=ExtResource("1_ff7r6")]
 top_level = true

@@ -94,13 +94,14 @@ position = Vector2(501, 501)
 [node name="InGameMenu" parent="." instance=ExtResource("3_oadbb")]
 top_level = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tileMap")]
 tile_set = SubResource("TileSet_xq86r")
 format = 2
 layer_0/name = "Light"
 layer_1/name = "Dark"
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("7_tcc1d")
+tileMap = NodePath(".")
 
 [node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations", "tileMap")]
 position = Vector2(1150, 49)
