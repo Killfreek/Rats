@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0qk0i5jnbcm0"]
+[gd_scene load_steps=23 format=3 uid="uid://d0qk0i5jnbcm0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCreator.gd" id="1_flix3"]
 [ext_resource type="Script" path="res://Player/PlayerSpawnController.gd" id="1_fsalg"]
@@ -27,6 +27,9 @@ tile_data = PackedInt32Array(0, 7, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1vqw2"]
 tile_data = PackedInt32Array(0, 65543, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_4qe24"]
+tile_data = PackedInt32Array(0, 9, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fa46"]
 texture = ExtResource("4_kif0k")
@@ -61,6 +64,7 @@ pattern_0 = SubResource("TileMapPattern_vr46u")
 pattern_1 = SubResource("TileMapPattern_ccwgg")
 pattern_2 = SubResource("TileMapPattern_m5412")
 pattern_3 = SubResource("TileMapPattern_1vqw2")
+pattern_4 = SubResource("TileMapPattern_4qe24")
 
 [node name="LevelCreatorTester" type="Node" node_paths=PackedStringArray("tileMap", "playerController", "enemyController")]
 script = ExtResource("1_flix3")

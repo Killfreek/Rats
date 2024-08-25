@@ -28,6 +28,7 @@ offset_bottom = 40.0
 text = "Run"
 
 [node name="SaveBtn" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 55.0
