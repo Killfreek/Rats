@@ -8,6 +8,7 @@ extends Node
 var boardRowSize : int;
 var boardColumnSize : int;
 var enemySpawnPoints : Array[Vector2]
+var enemySpawnPointsIndicatorsDic = {}
 
 func createBoard(rows, columns):
 	tileMap.clear();
@@ -43,6 +44,19 @@ func setEnemySpawnPoint(row, column):
 	indicator.position = tileMap.map_to_local(Vector2(column, row));
 	indicator.visible = true;
 	tileMap.add_child(indicator);
+	enemySpawnPointsIndicatorsDic[Vector2(column, row)] = indicator;
+	return [true, ""]
+	
+func removeEnemySpawnPoint(row, column):
+	if row > boardRowSize - 1 || boardRowSize == 0:
+		return [false, "row is bigger than board size"]
+	
+	if column > boardColumnSize - 1 || boardColumnSize == 0:
+		return [false, "col is bigger than board size"]
+		
+	enemySpawnPoints.erase(tileMap.map_to_local(Vector2(column, row)));
+	enemySpawnPointsIndicatorsDic[Vector2(column,row)].queue_free()
+	enemySpawnPointsIndicatorsDic.erase(Vector2(column,row));
 	return [true, ""]
 
 func RunLevel():

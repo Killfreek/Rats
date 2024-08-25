@@ -190,9 +190,19 @@ offset_top = 555.0
 offset_right = 226.0
 offset_bottom = 578.0
 
+[node name="RemoveEnemySpawnPointBtn2" type="Button" parent="SetEnemySpawnPoints"]
+offset_left = 161.0
+offset_top = 539.0
+offset_right = 294.0
+offset_bottom = 593.0
+text = "Remove Enemy
+Spawn Point
+"
+
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="SaveBtn" to="." method="_on_save_btn_pressed"]
 [connection signal="pressed" from="BoardGameDimensions/SetBoardSizeBtn" to="." method="_on_set_board_size_btn_pressed"]
 [connection signal="pressed" from="SetSpawnPoint/PlaceSpawnPointBtn" to="." method="_on_place_spawn_point_btn_pressed"]
 [connection signal="pressed" from="SetEnemySpawnPoints/PlaceEnemySpawnPointBtn" to="." method="_on_place_enemy_spawn_point_btn_pressed"]
+[connection signal="pressed" from="SetEnemySpawnPoints/RemoveEnemySpawnPointBtn2" to="." method="_on_remove_enemy_spawn_point_btn_pressed"]
