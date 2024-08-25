@@ -24,10 +24,11 @@ func setUpBoard(rows, columns):
 			else:
 				tileMap.set_pattern(0, tileMap.local_to_map(Vector2(col * 100, row * 100)), darkPattern);
 				useLightPattern = true;
-		if useLightPattern:
-			useLightPattern = false;
-		else:
-			useLightPattern = true;
+		if fmod(columns, 2) == 0:
+			if useLightPattern:
+				useLightPattern = false;
+			else:
+				useLightPattern = true;
 			
 	var borderPattern = tileMap.tile_set.get_pattern(4);
 	for col in range(columns):

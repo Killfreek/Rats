@@ -10,6 +10,9 @@ extends Node
 
 var canSpawn : bool
 
+func _ready():
+	PlayerAreaBottomRightCorner.position = Vector2(CustomLevelVars.BoardCoumnLength * 100, CustomLevelVars.BoardRowLength * 100);
+
 func _process(delta):
 	if Input.is_action_pressed("SpawnPlayer") && canSpawn:
 		SpawnPlayer();
