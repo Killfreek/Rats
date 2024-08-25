@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bg4ep5mdydjkw" path="res://Sprites/Background/WallTexture1.png" id="5_0rbdn"]
 [ext_resource type="Texture2D" uid="uid://dud2b2uvxeree" path="res://Sprites/Background/WallTexture2.png" id="6_roouv"]
 [ext_resource type="Script" path="res://Levels/TileMapController.gd" id="7_tcc1d"]
-[ext_resource type="Script" path="res://EnemyBots/EnemySpawnController.gd" id="8_eda62"]
 [ext_resource type="PackedScene" uid="uid://cn6sy13cm2suv" path="res://EnemyBots/Npcs/EnemywithCatapult.tscn" id="9_ga7wq"]
+[ext_resource type="Script" path="res://EnemyBots/EnemySpawnControllerV2.gd" id="9_ng2p2"]
 [ext_resource type="PackedScene" uid="uid://bi28dgfpt004" path="res://EnemyBots/Npcs/EnemywithGun.tscn" id="10_b66ai"]
 [ext_resource type="PackedScene" uid="uid://1ft0pw3n37f7" path="res://EnemyBots/Npcs/EnemywithRocket.tscn" id="11_4vyar"]
 
@@ -104,26 +104,13 @@ layer_1/tile_data = PackedInt32Array()
 script = ExtResource("7_tcc1d")
 tileMap = NodePath(".")
 
-[node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("spawnLocations", "tileMap")]
+[node name="EnemySpawnLocations" type="Node2D" parent="." node_paths=PackedStringArray("tileMap")]
 position = Vector2(1150, 49)
-script = ExtResource("8_eda62")
-spawnLocations = [NodePath("EnemySpawnLocation1"), NodePath("EnemySpawnLocation2"), NodePath("EnemySpwanLocation3"), NodePath("EnemySpwanLocation4"), NodePath("EnemySpwanLocation5")]
+script = ExtResource("9_ng2p2")
 enemyScene = Array[PackedScene]([ExtResource("9_ga7wq"), ExtResource("10_b66ai"), ExtResource("11_4vyar")])
 tileMap = NodePath("../TileMap")
 
-[node name="EnemySpawnLocation1" type="Node2D" parent="EnemySpawnLocations"]
-
-[node name="EnemySpawnLocation2" type="Node2D" parent="EnemySpawnLocations"]
-position = Vector2(0, 100)
-
-[node name="EnemySpwanLocation3" type="Node2D" parent="EnemySpawnLocations"]
-position = Vector2(0, 200)
-
-[node name="EnemySpwanLocation4" type="Node2D" parent="EnemySpawnLocations"]
-position = Vector2(0, 300)
-
-[node name="EnemySpwanLocation5" type="Node2D" parent="EnemySpawnLocations"]
-position = Vector2(0, 400)
+[node name="EnemySpawnLocationPreFab" type="Node2D" parent="EnemySpawnLocations"]
 
 [node name="EnemySpawnTimer" type="Timer" parent="EnemySpawnLocations"]
 autostart = true

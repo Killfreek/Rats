@@ -43,47 +43,48 @@ offset_bottom = 40.0
 
 [node name="SetBoardSizeBtn" type="Button" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 437.0
-offset_top = 592.0
-offset_right = 555.0
-offset_bottom = 623.0
+offset_left = 12.0
+offset_top = 256.0
+offset_right = 130.0
+offset_bottom = 287.0
 text = "Set Board Size"
 
 [node name="BoardRowsLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 600.0
-offset_right = 107.0
-offset_bottom = 623.0
+offset_left = 20.0
+offset_top = 157.0
+offset_right = 112.0
+offset_bottom = 180.0
 text = "Board Rows"
 
 [node name="BoardColumnsLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 597.0
-offset_right = 326.0
-offset_bottom = 620.0
+offset_left = 17.0
+offset_top = 209.0
+offset_right = 136.0
+offset_bottom = 232.0
 text = "Board Columns"
 
 [node name="BoardRowsTxt" type="TextEdit" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 124.0
-offset_top = 600.0
-offset_right = 173.0
-offset_bottom = 624.0
+offset_left = 129.0
+offset_top = 157.0
+offset_right = 178.0
+offset_bottom = 181.0
 
 [node name="BoardColumnsTxt" type="TextEdit" parent="BoardGameDimensions"]
-offset_left = 347.0
-offset_top = 595.0
-offset_right = 396.0
-offset_bottom = 619.0
+layout_mode = 0
+offset_left = 144.0
+offset_top = 207.0
+offset_right = 193.0
+offset_bottom = 231.0
 
 [node name="SetBoardSizeLbl" type="Label" parent="BoardGameDimensions"]
 layout_mode = 0
-offset_left = 439.0
-offset_top = 557.0
-offset_right = 504.0
-offset_bottom = 580.0
+offset_left = 21.0
+offset_top = 302.0
+offset_right = 86.0
+offset_bottom = 325.0
 
 [node name="SetSpawnPoint" type="Control" parent="."]
 anchors_preset = 0
@@ -92,48 +93,106 @@ offset_bottom = 40.0
 
 [node name="PlaceSpawnPointBtn" type="Button" parent="SetSpawnPoint"]
 layout_mode = 0
-offset_left = 990.0
-offset_top = 589.0
-offset_right = 1123.0
-offset_bottom = 620.0
+offset_left = 13.0
+offset_top = 406.0
+offset_right = 146.0
+offset_bottom = 437.0
 text = "Set Spawn Point
 "
 
 [node name="PlaceSpawnPointRowsLbl" type="Label" parent="SetSpawnPoint"]
-offset_left = 581.0
-offset_top = 595.0
-offset_right = 673.0
-offset_bottom = 618.0
+layout_mode = 0
+offset_left = 34.0
+offset_top = 324.0
+offset_right = 126.0
+offset_bottom = 347.0
 text = "SP row"
 
 [node name="PlaceSpawnPointColumnsLbl" type="Label" parent="SetSpawnPoint"]
-offset_left = 773.0
-offset_top = 592.0
-offset_right = 892.0
-offset_bottom = 615.0
+layout_mode = 0
+offset_top = 365.0
+offset_right = 119.0
+offset_bottom = 388.0
 text = "Sp column
 "
 
 [node name="PlaceSpawnPointRowsTxt" type="TextEdit" parent="SetSpawnPoint"]
-offset_left = 690.0
-offset_top = 595.0
-offset_right = 739.0
-offset_bottom = 619.0
+layout_mode = 0
+offset_left = 143.0
+offset_top = 324.0
+offset_right = 192.0
+offset_bottom = 348.0
 
 [node name="PlaceSpawnPointColumnsTxt" type="TextEdit" parent="SetSpawnPoint"]
-offset_left = 913.0
-offset_top = 590.0
-offset_right = 962.0
-offset_bottom = 614.0
+layout_mode = 0
+offset_left = 140.0
+offset_top = 363.0
+offset_right = 189.0
+offset_bottom = 387.0
 
 [node name="PlaceSpawnPointLbl" type="Label" parent="SetSpawnPoint"]
-offset_left = 991.0
-offset_top = 539.0
-offset_right = 1056.0
-offset_bottom = 562.0
+layout_mode = 0
+offset_left = 162.0
+offset_top = 413.0
+offset_right = 227.0
+offset_bottom = 436.0
+
+[node name="SetEnemySpawnPoints" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlaceEnemySpawnPointBtn" type="Button" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 538.0
+offset_right = 146.0
+offset_bottom = 592.0
+text = "Set Enemy
+Spawn Point
+"
+
+[node name="PlaceEnemySpawnPointRowsLbl" type="Label" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 463.0
+offset_right = 122.0
+offset_bottom = 486.0
+text = "Enemy SP row"
+
+[node name="PlaceEnemySpawnPointColumnsLbl" type="Label" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 502.0
+offset_right = 135.0
+offset_bottom = 525.0
+text = "Enemy Sp column
+"
+
+[node name="PlaceEnemySpawnPointRowsTxt" type="TextEdit" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 463.0
+offset_right = 182.0
+offset_bottom = 487.0
+
+[node name="PlaceEnemySpawnPointColumnsTxt" type="TextEdit" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 502.0
+offset_right = 191.0
+offset_bottom = 526.0
+
+[node name="PlaceEnemySpawnPointLbl" type="Label" parent="SetEnemySpawnPoints"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 555.0
+offset_right = 226.0
+offset_bottom = 578.0
 
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="SaveBtn" to="." method="_on_save_btn_pressed"]
 [connection signal="pressed" from="BoardGameDimensions/SetBoardSizeBtn" to="." method="_on_set_board_size_btn_pressed"]
 [connection signal="pressed" from="SetSpawnPoint/PlaceSpawnPointBtn" to="." method="_on_place_spawn_point_btn_pressed"]
+[connection signal="pressed" from="SetEnemySpawnPoints/PlaceEnemySpawnPointBtn" to="." method="_on_place_enemy_spawn_point_btn_pressed"]

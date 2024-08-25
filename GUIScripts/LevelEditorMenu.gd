@@ -50,3 +50,18 @@ func _on_place_spawn_point_btn_pressed():
 	var result = levelAssembler.setSpawnPoint(rowSPPoint, columnSPPoint);
 	if 	!result[0]:
 		errorLabelNode.text = result[1];
+
+
+func _on_place_enemy_spawn_point_btn_pressed():
+	var errorLabelNode = get_node("SetEnemySpawnPoints/PlaceEnemySpawnPointLbl");
+	errorLabelNode.text = "";
+	
+	var rowSPPointNode = get_node("SetEnemySpawnPoints/PlaceEnemySpawnPointRowsTxt");		
+	var colSPPointNode = get_node("SetEnemySpawnPoints/PlaceEnemySpawnPointColumnsTxt");
+		
+	var rowSPPoint = rowSPPointNode.text.to_int() - 1;
+	var columnSPPoint = colSPPointNode.text.to_int() - 1;
+	
+	var result = levelAssembler.setEnemySpawnPoint(rowSPPoint, columnSPPoint);
+	if 	!result[0]:
+		errorLabelNode.text = result[1]; # Replace with function body.

@@ -7,6 +7,7 @@ extends Node
 func _ready():
 	setUpBoard(CustomLevelVars.BoardRowLength, CustomLevelVars.BoardCoumnLength);
 	setUpPlayer(CustomLevelVars.SpawnPosition);
+	setUpEnemySpawnLocations(CustomLevelVars.EnemySpawnPosition);
 
 func setUpBoard(rows, columns):
 	tileMap.clear();
@@ -19,3 +20,6 @@ func setUpBoard(rows, columns):
 func setUpPlayer(position):
 	playerController.playerSpawnLocation = position;
 	playerController.SpawnPlayer();
+
+func setUpEnemySpawnLocations(locations):
+	enemyController.setUpEnemySpawnPoints(locations);

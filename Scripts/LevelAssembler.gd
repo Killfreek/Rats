@@ -2,10 +2,12 @@ extends Node
 
 @export var tileMap : TileMap
 @export var SpawnPointIndicator : Node;
+@export var EnemySpawnPointIndicator : Node;
 @export var tileWidth : int
 
 var boardRowSize : int;
 var boardColumnSize : int;
+var enemySpawnPoints : Array[Vector2]
 
 func createBoard(rows, columns):
 	tileMap.clear();
@@ -29,9 +31,24 @@ func setSpawnPoint(row, column):
 	SpawnPointIndicator.visible = true;
 	return [true, ""]
 
+func setEnemySpawnPoint(row, column):
+	if row > boardRowSize - 1 || boardRowSize == 0:
+		return [false, "row is bigger than board size"]
+	
+	if column > boardColumnSize - 1 || boardColumnSize == 0:
+		return [false, "col is bigger than board size"]
+
+	enemySpawnPoints.push_front(tileMap.map_to_local(Vector2(column, row)));
+	var indicator = EnemySpawnPointIndicator.duplicate();
+	indicator.position = tileMap.map_to_local(Vector2(column, row));
+	indicator.visible = true;
+	tileMap.add_child(indicator);
+	return [true, ""]
+
 func RunLevel():
 	CustomLevelVars.BoardRowLength = boardRowSize;
 	CustomLevelVars.BoardCoumnLength = boardColumnSize;
 	CustomLevelVars.SpawnPosition = SpawnPointIndicator.position;
+	CustomLevelVars.EnemySpawnPosition = enemySpawnPoints;
 	
 	get_tree().change_scene_to_file("res://Levels/LevelCreatorTester.tscn");

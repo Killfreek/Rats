@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmy7tcnpc5h32"]
+[gd_scene load_steps=21 format=3 uid="uid://dmy7tcnpc5h32"]
 
 [ext_resource type="PackedScene" uid="uid://3vctrcckf8dt" path="res://Levels/UI/LevelEditorUI.tscn" id="1_ff7r6"]
 [ext_resource type="Script" path="res://Scripts/LevelAssembler.gd" id="2_k1qtf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ba57d0ebu62oq" path="res://Sprites/PlayerModels/PlayerCircleLeft.png" id="7_kq368"]
 [ext_resource type="Texture2D" uid="uid://b28m6vgyg51cs" path="res://Sprites/PlayerModels/PlayerCircleRight.png" id="8_532p8"]
 [ext_resource type="Texture2D" uid="uid://herrl4m7vhjb" path="res://Sprites/PlayerModels/PlayerCircleBack.png" id="9_wgvmb"]
+[ext_resource type="Texture2D" uid="uid://ct63mmuyrjhed" path="res://Sprites/HostileMobs/RedboxWithGun.png" id="10_yfb37"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vr46u"]
 tile_data = PackedInt32Array(0, 7, 0)
@@ -91,21 +92,37 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="LevelMaker" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qy0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yfb37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelMaker" type="Node2D" node_paths=PackedStringArray("tileMap", "SpawnPointIndicator", "EnemySpawnPointIndicator")]
 script = ExtResource("2_k1qtf")
+tileMap = NodePath("LevelAssembler/TileMap")
+SpawnPointIndicator = NodePath("LevelAssembler/TileMap/AnimatedSprite2D")
+EnemySpawnPointIndicator = NodePath("LevelAssembler/TileMap/EnemySprite")
+tileWidth = 100
 
 [node name="LevelEditorUI" parent="." node_paths=PackedStringArray("levelAssembler") instance=ExtResource("1_ff7r6")]
 top_level = true
 levelAssembler = NodePath("../LevelAssembler")
 
-[node name="LevelAssembler" type="Node2D" parent="." node_paths=PackedStringArray("tileMap", "SpawnPointIndicator")]
+[node name="LevelAssembler" type="Node2D" parent="." node_paths=PackedStringArray("tileMap", "SpawnPointIndicator", "EnemySpawnPointIndicator")]
 script = ExtResource("2_k1qtf")
 tileMap = NodePath("TileMap")
 SpawnPointIndicator = NodePath("TileMap/AnimatedSprite2D")
+EnemySpawnPointIndicator = NodePath("TileMap/EnemySprite")
 tileWidth = 100
 
 [node name="TileMap" type="TileMap" parent="LevelAssembler"]
-position = Vector2(100, 50)
+position = Vector2(250, 50)
 tile_set = SubResource("TileSet_f0nmp")
 format = 2
 layer_0/name = "Light"
@@ -117,3 +134,8 @@ visible = false
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_w41nn")
 animation = &"Idle"
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="LevelAssembler/TileMap"]
+visible = false
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_7qy0t")
